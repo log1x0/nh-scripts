@@ -400,6 +400,7 @@ const rowElements = 24;
 const scalar = 1.3;
 
 let orgTable = null;
+let peaAttached = false;
 
 (function () {
   "use strict";
@@ -484,7 +485,7 @@ function initLinks() {
 
   const w = rowElements;
   const h = Math.ceil(links.length / w);
-  console.log(w, h, links.length);
+  //console.log(w, h, links.length);
   while (links.length < w * h) {
     // Placeholder img (transparent):
     links.push(["data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==", 18, 18]);
@@ -800,7 +801,8 @@ function excludeFilter(text, words) {
 
 function hidePea() {
   const msg = document.querySelector("#message");
-  if (msg) {
+  if (msg && !peaAttached) {
+    peaAttached = true;
     const nameArray = [];
     msg.addEventListener("keyup", (event) => {
       const name = event.key;
@@ -816,10 +818,10 @@ function hidePea() {
           let wordsOld = localStorage.fWords;
           let words = prompt(
             "SB-Filter: ,=and ;=or !=not. For Example chickpea,!requested by;<sth. you don't want to see...> (case-insensitive):",
-            !wordsOld || wordsOld == "" ? "chickpea,!requested by;" : wordsOld,
+            !wordsOld || wordsOld == "" ? "chickpea,!requested by" : wordsOld,
           );
           if (!words || words == "") {
-            words = "chickpea,!requested by;";
+            words = "chickpea,!requested by";
           }
           localStorage.hidePea = 1;
           localStorage.fWords = words;
@@ -834,12 +836,14 @@ function hidePea1() {
   if (localStorage.hidePea == 1) {
     const words = localStorage.fWords;
     const body = document.querySelector("html > body > table:nth-of-type(2) > tbody");
-    for (let i = 0; i < body.rows.length; ) {
-      const element = body.rows[i].innerText;
-      if (excludeFilter(element, words)) {
-        body.deleteRow(i);
-      } else {
-        i++;
+    if (body) {
+      for (let i = 0; i < body.rows.length; ) {
+        const element = body.rows[i].innerText;
+        if (excludeFilter(element, words)) {
+          body.deleteRow(i);
+        } else {
+          i++;
+        }
       }
     }
   }
