@@ -304,18 +304,18 @@ let links = [
   ["themes/default/images/smilies/rock.gif", 20, 20],
   ["themes/default/images/smilies/cigar.gif", 22, 25],
   ["themes/default/images/smilies/icecream.gif", 22, 25],
-  ["themes/default/images/smilies/oldtimer.gif", 28, 29],
-  ["themes/default/images/smilies/wolverine.gif", 20, 20],
-  ["themes/default/images/smilies/strongbench.gif", 40, 21],
-  ["themes/default/images/smilies/weakbench.gif", 35, 21],
-  ["themes/default/images/smilies/bike.gif", 31, 31],
-  ["themes/default/images/smilies/music.gif", 26, 24],
-  ["themes/default/images/smilies/book.gif", 35, 20],
-  ["themes/default/images/smilies/fish.gif", 60, 25],
-  ["themes/default/images/smilies/whistle.gif", 35, 20],
-  ["themes/default/images/smilies/stupid.gif", 53, 51],
-  ["themes/default/images/smilies/dots.gif", 46, 51],
-  ["themes/default/images/smilies/axe.gif", 27, 28],
+  //["themes/default/images/smilies/oldtimer.gif", 28, 29],
+  //["themes/default/images/smilies/wolverine.gif", 20, 20],
+  //["themes/default/images/smilies/strongbench.gif", 40, 21],
+  //["themes/default/images/smilies/weakbench.gif", 35, 21],
+  //["themes/default/images/smilies/bike.gif", 31, 31],
+  //["themes/default/images/smilies/music.gif", 26, 24],
+  //["themes/default/images/smilies/book.gif", 35, 20],
+  //["themes/default/images/smilies/fish.gif", 60, 25],
+  //["themes/default/images/smilies/whistle.gif", 35, 20],
+  //["themes/default/images/smilies/stupid.gif", 53, 51],
+  //["themes/default/images/smilies/dots.gif", 46, 51],
+  //["themes/default/images/smilies/axe.gif", 27, 28],
   ["themes/default/images/smilies/hooray.gif", 31, 26],
   ["themes/default/images/smilies/yay.gif", 40, 60],
   ["themes/default/images/smilies/cake.gif", 28, 25],
@@ -357,18 +357,18 @@ let links = [
   ["themes/default/images/smilies/stockpieks.gif", 60, 20],
   ["themes/default/images/smilies/popoklatsch.gif", 48, 40],
   ["themes/default/images/smilies/knutschi.gif", 44, 18],
-  ["themes/default/images/smilies/narf.gif", 18, 18],
-  ["themes/default/images/smilies/2uglys.gif", 59, 50],
-  ["themes/default/images/smilies/kakapferdchen.gif", 56, 66],
-  ["themes/default/images/smilies/brrr.gif", 26, 32],
-  ["themes/default/images/smilies/blol2.gif", 29, 27],
-  ["themes/default/images/smilies/beek.gif", 15, 15],
+  //["themes/default/images/smilies/narf.gif", 18, 18],
+  //["themes/default/images/smilies/2uglys.gif", 59, 50],
+  //["themes/default/images/smilies/kakapferdchen.gif", 56, 66],
+  //["themes/default/images/smilies/brrr.gif", 26, 32],
+  //["themes/default/images/smilies/blol2.gif", 29, 27],
+  //["themes/default/images/smilies/beek.gif", 15, 15],
   //["themes/default/images/smilies/bevil.gif", 15, 15],
   //["themes/default/images/smilies/bcool.gif", 15, 15],
   //["themes/default/images/smilies/bcrying.gif", 15, 15],
-  ["themes/default/images/smilies/Basi.gif", 50, 40],
+  //["themes/default/images/smilies/Basi.gif", 50, 40],
   //["themes/default/images/smilies/bbaby.gif", 15, 15],
-  ["themes/default/images/smilies/pullcar.gif", 120, 38],
+  //["themes/default/images/smilies/pullcar.gif", 120, 38],
   // Add your own imgs here:
   ["files/imagecache/63733_Bouncing_Kirby.gif", 28, 28],
   ["files/imagecache/63733_Gary.gif", 28, 28],
@@ -394,10 +394,12 @@ let links = [
   ["files/imagecache/60835_3xoj0z06cts.gif", 28, 28],
 ];
 
+const withoutDefaultEmojis = true;
+
 const standardHeight = 550;
-const newHeight = 1250;
-const rowElements = 24;
-const scalar = 1.3;
+const newHeight = withoutDefaultEmojis ? 1000 : 1250;
+const rowElements = 22;
+const scalar = 1.35;
 
 let orgTable = null;
 let peaAttached = false;
@@ -478,6 +480,16 @@ function getHeight(link) {
 }
 
 function initLinks() {
+  if (withoutDefaultEmojis) {
+    let targetLength = rowElements * Math.ceil((links.length - 4 * rowElements) / rowElements);
+    for (let i = links.length - 1; i >= 0 && links.length != targetLength; i--) {
+      const e = links[i];
+      if (e[0].startsWith("themes/default/")) {
+        links.splice(i, 1);
+      }
+    }
+  }
+
   for (let i = 0; i < links.length; i++) {
     const e = links[i];
     e[0] = "https://newheaven.nl/" + e[0];
