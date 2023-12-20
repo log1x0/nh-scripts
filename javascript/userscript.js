@@ -395,7 +395,7 @@ let links = [
 ];
 
 const standardHeight = 550;
-const newHeight = 1300;
+const newHeight = 1250;
 const rowElements = 24;
 const scalar = 1.3;
 
@@ -624,16 +624,16 @@ function resizeTds(rows) {
 }
 
 function addPepeSearch() {
-  let msg = document.querySelector("#message");
-  let tbl = getNthParent(msg, 4);
-  if (tbl != null) {
+  let comic = document.querySelector('input[value="Comic"]');
+  let div = getNthParent(comic, 1);
+  if (div != null) {
     let input = document.createElement("input");
     input.id = "pepe-search";
     input.name = "pepe-search";
     input.type = "text";
     input.placeholder = "Search Pepe...";
     input.addEventListener("input", pepeSearchOnChange, false);
-    tbl.insertRow().insertCell().appendChild(input);
+    div.appendChild(input);
   }
 }
 
@@ -800,11 +800,11 @@ function excludeFilter(text, words) {
 }
 
 function hidePea() {
-  const msg = document.querySelector("#message");
-  if (msg && !peaAttached) {
+  const pepe = document.querySelector("#pepe-search");
+  if (pepe && !peaAttached) {
     peaAttached = true;
     const nameArray = [];
-    msg.addEventListener("keyup", (event) => {
+    pepe.addEventListener("keyup", (event) => {
       const name = event.key;
       nameArray.push(name);
       while (nameArray.length > 3) {
