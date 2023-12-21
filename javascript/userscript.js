@@ -849,12 +849,14 @@ function hidePea() {
 
 function hidePea1() {
   if (localStorage.hidePea == 1) {
-    const re = new RegExp(localStorage.fWords, "i");
+    //const re = new RegExp(localStorage.fWords, "i");
+    const words = localStorage.fWords;
     const body = document.querySelector("html > body > table:nth-of-type(2) > tbody");
     if (body) {
       for (let i = 0; i < body.rows.length; ) {
         const element = body.rows[i].innerText;
-        if (re.test(element)) {
+        //if (re.test(element)) {
+        if (excludeFilter(element, words)) {
           body.deleteRow(i);
         } else {
           i++;
