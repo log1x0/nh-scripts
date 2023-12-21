@@ -304,18 +304,18 @@ let links = [
   ["themes/default/images/smilies/rock.gif", 20, 20],
   ["themes/default/images/smilies/cigar.gif", 22, 25],
   ["themes/default/images/smilies/icecream.gif", 22, 25],
-  //["themes/default/images/smilies/oldtimer.gif", 28, 29],
-  //["themes/default/images/smilies/wolverine.gif", 20, 20],
-  //["themes/default/images/smilies/strongbench.gif", 40, 21],
-  //["themes/default/images/smilies/weakbench.gif", 35, 21],
-  //["themes/default/images/smilies/bike.gif", 31, 31],
-  //["themes/default/images/smilies/music.gif", 26, 24],
-  //["themes/default/images/smilies/book.gif", 35, 20],
-  //["themes/default/images/smilies/fish.gif", 60, 25],
-  //["themes/default/images/smilies/whistle.gif", 35, 20],
-  //["themes/default/images/smilies/stupid.gif", 53, 51],
-  //["themes/default/images/smilies/dots.gif", 46, 51],
-  //["themes/default/images/smilies/axe.gif", 27, 28],
+  ["themes/default/images/smilies/oldtimer.gif", 28, 29],
+  ["themes/default/images/smilies/wolverine.gif", 20, 20],
+  ["themes/default/images/smilies/strongbench.gif", 40, 21],
+  ["themes/default/images/smilies/weakbench.gif", 35, 21],
+  ["themes/default/images/smilies/bike.gif", 31, 31],
+  ["themes/default/images/smilies/music.gif", 26, 24],
+  ["themes/default/images/smilies/book.gif", 35, 20],
+  ["themes/default/images/smilies/fish.gif", 60, 25],
+  ["themes/default/images/smilies/whistle.gif", 35, 20],
+  ["themes/default/images/smilies/stupid.gif", 53, 51],
+  ["themes/default/images/smilies/dots.gif", 46, 51],
+  ["themes/default/images/smilies/axe.gif", 27, 28],
   ["themes/default/images/smilies/hooray.gif", 31, 26],
   ["themes/default/images/smilies/yay.gif", 40, 60],
   ["themes/default/images/smilies/cake.gif", 28, 25],
@@ -327,7 +327,7 @@ let links = [
   ["themes/default/images/smilies/punk.gif", 33, 30],
   ["themes/default/images/smilies/bounce.gif", 25, 36],
   ["themes/default/images/smilies/group.gif", 70, 18],
-  //["themes/default/images/smilies/console.gif", 46, 20],
+  ["themes/default/images/smilies/console.gif", 46, 20],
   ["files/imagecache/70613_console_new.gif", 46, 20],
   ["themes/default/images/smilies/smurf.gif", 20, 24],
   ["themes/default/images/smilies/soldiers.gif", 100, 105],
@@ -357,18 +357,18 @@ let links = [
   ["themes/default/images/smilies/stockpieks.gif", 60, 20],
   ["themes/default/images/smilies/popoklatsch.gif", 48, 40],
   ["themes/default/images/smilies/knutschi.gif", 44, 18],
-  //["themes/default/images/smilies/narf.gif", 18, 18],
-  //["themes/default/images/smilies/2uglys.gif", 59, 50],
-  //["themes/default/images/smilies/kakapferdchen.gif", 56, 66],
-  //["themes/default/images/smilies/brrr.gif", 26, 32],
-  //["themes/default/images/smilies/blol2.gif", 29, 27],
-  //["themes/default/images/smilies/beek.gif", 15, 15],
-  //["themes/default/images/smilies/bevil.gif", 15, 15],
-  //["themes/default/images/smilies/bcool.gif", 15, 15],
-  //["themes/default/images/smilies/bcrying.gif", 15, 15],
-  //["themes/default/images/smilies/Basi.gif", 50, 40],
-  //["themes/default/images/smilies/bbaby.gif", 15, 15],
-  //["themes/default/images/smilies/pullcar.gif", 120, 38],
+  ["themes/default/images/smilies/narf.gif", 18, 18],
+  ["themes/default/images/smilies/2uglys.gif", 59, 50],
+  ["themes/default/images/smilies/kakapferdchen.gif", 56, 66],
+  ["themes/default/images/smilies/brrr.gif", 26, 32],
+  ["themes/default/images/smilies/blol2.gif", 29, 27],
+  ["themes/default/images/smilies/beek.gif", 15, 15],
+  ["themes/default/images/smilies/bevil.gif", 15, 15],
+  ["themes/default/images/smilies/bcool.gif", 15, 15],
+  ["themes/default/images/smilies/bcrying.gif", 15, 15],
+  ["themes/default/images/smilies/Basi.gif", 50, 40],
+  ["themes/default/images/smilies/bbaby.gif", 15, 15],
+  ["themes/default/images/smilies/pullcar.gif", 120, 38],
   // Add your own imgs here:
   ["files/imagecache/63733_Bouncing_Kirby.gif", 28, 28],
   ["files/imagecache/63733_Gary.gif", 28, 28],
@@ -397,7 +397,7 @@ let links = [
 const withoutDefaultEmojis = true;
 
 const standardHeight = 550;
-const newHeight = withoutDefaultEmojis ? 1000 : 1250;
+const newHeight = withoutDefaultEmojis ? 1000 : 1350;
 const rowElements = 22;
 const scalar = 1.35;
 
@@ -406,13 +406,17 @@ let peaAttached = false;
 
 (function () {
   "use strict";
-  swapInput();
-  removeHints();
-  addPepe();
-  addPepeSearch();
+  if (getFirstSmiley()) {
+    swapInput();
+    removeHints();
+    addPepe();
+    addPepeSearch();
+    hidePea();
+  }
+
+  hidePea1();
   add_4k();
   addSwitchStyle();
-  hidePea();
 })();
 
 function swapInput() {
@@ -429,7 +433,7 @@ function swapInput() {
 function removeHints() {
   let std = getFirstSmiley();
   let tbl = getNthParent(std, 7);
-  if (tbl != null && tbl.rows.length >= 1) {
+  if (tbl && tbl.nodeName == "TBODY" && tbl.rows.length >= 2) {
     tbl.rows[1].innerHTML = "<hr>";
   }
 }
@@ -481,7 +485,7 @@ function getHeight(link) {
 
 function initLinks() {
   if (withoutDefaultEmojis) {
-    let targetLength = rowElements * Math.ceil((links.length - 4 * rowElements) / rowElements);
+    let targetLength = rowElements * 12;
     for (let i = links.length - 1; i >= 0 && links.length != targetLength; i--) {
       const e = links[i];
       if (e[0].startsWith("themes/default/")) {
@@ -497,7 +501,7 @@ function initLinks() {
 
   const w = rowElements;
   const h = Math.ceil(links.length / w);
-  //console.log(w, h, links.length);
+
   while (links.length < w * h) {
     // Placeholder img (transparent):
     links.push(["data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==", 18, 18]);
@@ -759,10 +763,10 @@ function styleClick() {
 function setStyle() {
   // choose background color:
   let color1 = "#454545";
-  // let color1 = "SlateGray";
 
   let color2 = "LightGray";
   let color3 = "#DDCCBB";
+
   document.body.style.backgroundColor = color1;
   document.querySelectorAll(".column1, .column2").forEach((e) => {
     e.style.background = color1;
@@ -812,45 +816,48 @@ function excludeFilter(text, words) {
 }
 
 function hidePea() {
-  const pepe = document.querySelector("#pepe-search");
-  if (pepe && !peaAttached) {
+  if (!peaAttached) {
     peaAttached = true;
-    const nameArray = [];
-    pepe.addEventListener("keyup", (event) => {
-      const name = event.key;
-      nameArray.push(name);
-      while (nameArray.length > 3) {
-        nameArray.shift();
-      }
-      if (JSON.stringify(nameArray) == JSON.stringify(["p", "e", "a"])) {
-        if (localStorage.hidePea == 1) {
-          alert("Info: chickpea filter is deactivated.");
-          localStorage.hidePea = 0;
-        } else {
-          let wordsOld = localStorage.fWords;
-          let words = prompt(
-            "SB-Filter: ,=and ;=or !=not. For Example chickpea,!requested by;<sth. you don't want to see...> (case-insensitive):",
-            !wordsOld || wordsOld == "" ? "chickpea,!requested by" : wordsOld,
-          );
-          if (!words || words == "") {
-            words = "chickpea,!requested by";
-          }
-          localStorage.hidePea = 1;
-          localStorage.fWords = words;
+    const pepe = document.querySelector("#pepe-search");
+    if (pepe) {
+      const nameArray = [];
+      pepe.addEventListener("keyup", (event) => {
+        const name = event.key;
+        nameArray.push(name);
+        while (nameArray.length > 3) {
+          nameArray.shift();
         }
-      }
-    });
+        if (JSON.stringify(nameArray) == JSON.stringify(["p", "e", "a"])) {
+          if (localStorage.hidePea == 1) {
+            alert("Info: chickpea filter is deactivated.");
+            localStorage.hidePea = 0;
+          } else {
+            let wordsOld = localStorage.fWords;
+            let words = prompt(
+              "SB-Filter: ,=and ;=or !=not. For Example chickpea,!requested by;<sth. you don't want to see...> (case-insensitive):",
+              !wordsOld || wordsOld == "" ? "chickpea,!requested by" : wordsOld,
+            );
+            if (!words || words == "") {
+              words = "chickpea,!requested by";
+            }
+            localStorage.hidePea = 1;
+            localStorage.fWords = words;
+          }
+        }
+      });
+    }
   }
-  hidePea1();
 }
 
 function hidePea1() {
   if (localStorage.hidePea == 1) {
+    //const re = new RegExp(localStorage.fWords, "i");
     const words = localStorage.fWords;
     const body = document.querySelector("html > body > table:nth-of-type(2) > tbody");
     if (body) {
       for (let i = 0; i < body.rows.length; ) {
         const element = body.rows[i].innerText;
+        //if (re.test(element)) {
         if (excludeFilter(element, words)) {
           body.deleteRow(i);
         } else {
