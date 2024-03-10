@@ -411,6 +411,7 @@ let peaAttached = false;
     removeHints();
     addPepe();
     addPepeSearch();
+    addAiButton();
     hidePea();
   }
 
@@ -720,6 +721,20 @@ function add_4k() {
       e.src = "https://newheaven.nl/files/imagecache/63726_29907_2160p_TV.png";
     }
   });
+}
+
+function addAiButton() {
+  let comic = document.querySelector('input[value="Comic"]');
+  let div = getNthParent(comic, 1);
+  if (div != null) {
+    let input = document.createElement("input");
+    input.id = "ai-button";
+    input.name = "ai-button";
+    input.type = "button";
+    input.value = "ChatGPT";
+    input.setAttribute("onclick", "setTag('?chatgpt ');");
+    div.appendChild(input);
+  }
 }
 
 function addSwitchStyle() {
