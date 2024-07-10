@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         Userscript NH Style
+// @name         Userscript for NH
 // @namespace    https://openuserjs.org/users/log1x0
 // @version      0.0.1
 // @description  Userscript for NH
