@@ -1,9 +1,9 @@
 // ==UserScript==
 // @name         Userscript NH Style
-// @namespace    http://tampermonkey.net/
-// @version      0.1
-// @description  try to take over the world!
-// @author       You
+// @namespace    https://openuserjs.org/users/log1x0
+// @version      0.0.1
+// @description  Userscript for NH
+// @author       log1x0
 // @match        https://newheaven.nl/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=newheaven.nl
 // @grant        none
@@ -11,6 +11,10 @@
 // @require      https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js
 // @require      https://cdnjs.cloudflare.com/ajax/libs/jszip-utils/0.1.0/jszip-utils.min.js
 // ==/UserScript==
+
+// ==OpenUserJS==
+// @author log1x0
+// ==/OpenUserJS==
 
 let links = [
   ["files/imagecache/63726_pepe-001.gif", 28, 28],
