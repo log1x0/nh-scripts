@@ -4,6 +4,7 @@
 // @version      0.0.2
 // @description  Userscript for NH
 // @author       log1x0
+// @license      MIT
 // @match        https://newheaven.nl/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=newheaven.nl
 // @grant        none
