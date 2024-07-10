@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Userscript for NH
 // @namespace    https://openuserjs.org/users/log1x0
-// @version      0.0.1
+// @version      0.0.2
 // @description  Userscript for NH
 // @author       log1x0
 // @match        https://newheaven.nl/*
@@ -90,7 +90,7 @@ let links = [
   ["files/imagecache/63733_pepe-076.gif", 41, 40],
   ["files/imagecache/63733_pepe-077.gif", 26, 18],
   ["files/imagecache/63733_pepe-078.gif", 36, 29],
-  ["files/imagecache/63733_poppen.gif", 42, 32],
+  ["files/imagecache/63733_Groehl.gif", 42, 32],
   ["files/imagecache/63733_pepe-094.gif", 36, 26],
   ["files/imagecache/63733_pepe-109.gif", 32, 32],
   ["files/imagecache/63733_pepe-121.gif", 32, 32],
@@ -185,7 +185,6 @@ let links = [
   ["files/imagecache/60835_0eadb9tf3sj.gif", 27, 27],
   ["files/imagecache/63733_Kaffee-G%C3%A4hn.gif", 104, 64],
   ["files/imagecache/60835_xntkyxe3mk7.gif", 50, 35],
-  ["files/imagecache/60835_81i8gejdfw3.gif", 115, 46],
   ["files/imagecache/60835_uriwd79j509.gif", 136, 81],
   ["files/imagecache/60835_j1v404ijrbp.gif", 92, 45],
   ["files/imagecache/60835_m1l1my18m6u.gif", 48, 34],
@@ -331,7 +330,7 @@ let links = [
   ["themes/default/images/smilies/punk.gif", 33, 30],
   ["themes/default/images/smilies/bounce.gif", 25, 36],
   ["themes/default/images/smilies/group.gif", 70, 18],
-  ["themes/default/images/smilies/console.gif", 46, 20],
+  //["themes/default/images/smilies/console.gif", 46, 20],
   ["files/imagecache/70613_console_new.gif", 46, 20],
   ["themes/default/images/smilies/smurf.gif", 20, 24],
   ["themes/default/images/smilies/soldiers.gif", 100, 105],
@@ -367,11 +366,11 @@ let links = [
   ["themes/default/images/smilies/brrr.gif", 26, 32],
   ["themes/default/images/smilies/blol2.gif", 29, 27],
   ["themes/default/images/smilies/beek.gif", 15, 15],
-  ["themes/default/images/smilies/bevil.gif", 15, 15],
-  ["themes/default/images/smilies/bcool.gif", 15, 15],
-  ["themes/default/images/smilies/bcrying.gif", 15, 15],
+  //["themes/default/images/smilies/bevil.gif", 15, 15],
+  //["themes/default/images/smilies/bcool.gif", 15, 15],
+  //["themes/default/images/smilies/bcrying.gif", 15, 15],
   ["themes/default/images/smilies/Basi.gif", 50, 40],
-  ["themes/default/images/smilies/bbaby.gif", 15, 15],
+  //["themes/default/images/smilies/bbaby.gif", 15, 15],
   ["themes/default/images/smilies/pullcar.gif", 120, 38],
   // Add your own imgs here:
   ["files/imagecache/63733_Bouncing_Kirby.gif", 28, 28],
@@ -396,6 +395,33 @@ let links = [
   ["files/imagecache/56594_NotFunny.gif", 28, 28],
   ["files/imagecache/56594_FLUTERS.gif", 28, 28],
   ["files/imagecache/60835_3xoj0z06cts.gif", 28, 28],
+  ["files/imagecache/56594_peepoHug.gif", 28, 28],
+  ["files/imagecache/62587_monkaStop.png", 28, 28],
+  ["files/imagecache/56594_peepoGift.gif", 28, 28],
+  ["files/imagecache/56594_peepoFAT.gif", 28, 28],
+  ["files/imagecache/56594_peepoBike.gif", 28, 28],
+  ["files/imagecache/56594_peepoAua.png", 28, 28],
+  ["files/imagecache/56594_Bedge.png", 28, 28],
+  ["files/imagecache/56594_MLADYGOODBYE.gif", 28, 28],
+  ["files/imagecache/56594_PepeM.jpg", 28, 28],
+  ["files/imagecache/56594_monkaSnap.gif", 28, 28],
+  ["files/imagecache/63837_spam.gif", 28, 28],
+  ["files/imagecache/56594_NotSure.jpg", 28, 28],
+  ["files/imagecache/56594_PausersHype.gif", 28, 28],
+  ["files/imagecache/56594_peepoSnowball.gif", 28, 28],
+  ["files/imagecache/56594_monkaLaughLeave.gif", 28, 28],
+  ["files/imagecache/63733_Duschen.gif", 28, 28],
+  ["files/imagecache/63733_biber_wink.gif", 28, 28],
+  ["files/imagecache/63733_wand.gif", 28, 28],
+  ["files/imagecache/63733_Pizza.gif", 28, 28],
+  ["files/imagecache/63733_Klatsch_PEPE.gif", 28, 28],
+  ["files/imagecache/63733_pepe-hmm.gif", 28, 28],
+  ["files/imagecache/63733_peepo-arrive-pepe-frog.gif", 28, 28],
+  ["files/imagecache/63733_pepe-dance.gif", 28, 28],
+  ["files/imagecache/63733_verflucht.gif", 28, 28],
+  ["files/imagecache/63733_pepe-meme.gif", 28, 28],
+  ["files/imagecache/63733_coffee-cobbee.gif", 28, 28],
+  ["files/imagecache/63733_pepe-peppo.gif", 28, 28],
 ];
 
 const withoutDefaultEmojis = true;
