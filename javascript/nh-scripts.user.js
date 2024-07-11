@@ -5,9 +5,9 @@
 // @description  Userscript for NH
 // @author       log1x0
 // @license      MIT
+// @grant        none
 // @match        https://newheaven.nl/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=newheaven.nl
-// @grant        none
 // @require      https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js
 // @require      https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js
 // @require      https://cdnjs.cloudflare.com/ajax/libs/jszip-utils/0.1.0/jszip-utils.min.js
