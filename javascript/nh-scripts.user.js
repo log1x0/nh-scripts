@@ -864,7 +864,7 @@ function hidePea() {
             let wordsOld = localStorage.fWords;
             let words = prompt(
               "SB-Filter: ,=and ;=or !=not. For Example chickpea,!requested by;<sth. you don't want to see...> (case-insensitive):",
-              !wordsOld || wordsOld == "" ? "chickpea,!requested by" : wordsOld
+              !wordsOld || wordsOld == "" ? "chickpea,!requested by" : wordsOld,
             );
             if (!words || words == "") {
               words = "chickpea,!requested by";
