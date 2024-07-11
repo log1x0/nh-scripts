@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Userscript for NH
 // @namespace    https://openuserjs.org/users/log1x0
-// @version      0.0.2
+// @version      0.0.3
 // @description  Userscript for NH
 // @author       log1x0
 // @license      MIT
@@ -447,7 +447,6 @@ let peaAttached = false;
   }
 
   hidePea1();
-  add_4k();
   addSwitchStyle();
 })();
 
@@ -741,17 +740,6 @@ function pepeSearchOnChange() {
       }
     }
   }
-}
-
-function add_4k() {
-  document.querySelectorAll("img").forEach((e) => {
-    if (e.src == "https://newheaven.nl/images/categories/9/2_109.gif") {
-      e.src = "https://newheaven.nl/files/imagecache/63726_29907_2160p.png";
-    }
-    if (e.src == "https://newheaven.nl/images/categories/9/4_110.gif") {
-      e.src = "https://newheaven.nl/files/imagecache/63726_29907_2160p_TV.png";
-    }
-  });
 }
 
 function addAiButton() {
