@@ -18,7 +18,7 @@
 // ==/OpenUserJS==
 
 let links = [
-   ["files/imagecache/63726_pepe-001.gif", 28, 28],
+  ["files/imagecache/63726_pepe-001.gif", 28, 28],
   ["files/imagecache/63733_pepe-095.gif", 28, 28],
   ["files/imagecache/63726_pepe-002.png", 28, 28],
   ["files/imagecache/63726_pepe-003.gif", 28, 28],
@@ -851,29 +851,29 @@ function hidePea() {
     if (pepe) {
       const nameArray = [];
       pepe.addEventListener("keyup", function (event) {
-          const name = event.key;
-          nameArray.push(name);
-          while (nameArray.length > 3) {
-            nameArray.shift();
-          }
-          if (JSON.stringify(nameArray) == JSON.stringify(["p", "e", "a"])) {
-            if (localStorage.hidePea == 1) {
-              alert("Info: chickpea filter is deactivated.");
-              localStorage.hidePea = 0;
-            } else {
-              let wordsOld = localStorage.fWords;
-              let words = prompt(
-                "SB-Filter: ,=and ;=or !=not. For Example chickpea,!requested by;<sth. you don't want to see...> (case-insensitive):",
-                !wordsOld || wordsOld == "" ? "chickpea,!requested by" : wordsOld
-              );
-              if (!words || words == "") {
-                words = "chickpea,!requested by";
-              }
-              localStorage.hidePea = 1;
-              localStorage.fWords = words;
+        const name = event.key;
+        nameArray.push(name);
+        while (nameArray.length > 3) {
+          nameArray.shift();
+        }
+        if (JSON.stringify(nameArray) == JSON.stringify(["p", "e", "a"])) {
+          if (localStorage.hidePea == 1) {
+            alert("Info: chickpea filter is deactivated.");
+            localStorage.hidePea = 0;
+          } else {
+            let wordsOld = localStorage.fWords;
+            let words = prompt(
+              "SB-Filter: ,=and ;=or !=not. For Example chickpea,!requested by;<sth. you don't want to see...> (case-insensitive):",
+              !wordsOld || wordsOld == "" ? "chickpea,!requested by" : wordsOld,
+            );
+            if (!words || words == "") {
+              words = "chickpea,!requested by";
             }
+            localStorage.hidePea = 1;
+            localStorage.fWords = words;
           }
-        });
+        }
+      });
     }
   }
 }
