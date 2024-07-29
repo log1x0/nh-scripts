@@ -221,153 +221,6 @@ let links = [
   ["files/imagecache/60835_o018f09hkfs.gif", 26, 22],
   ["files/imagecache/60835_kjcq2pi9lq6.gif", 45, 50],
   // Default imgs:
-  ["themes/default/images/smilies/cry.gif", 20, 20],
-  ["themes/default/images/smilies/noexpression.gif", 18, 18],
-  ["themes/default/images/smilies/confused.gif", 18, 18],
-  ["themes/default/images/smilies/ohmy.gif", 18, 18],
-  ["themes/default/images/smilies/cool1.gif", 18, 18],
-  ["themes/default/images/smilies/angel.gif", 18, 22],
-  ["themes/default/images/smilies/sleep.gif", 20, 20],
-  ["themes/default/images/smilies/angry.gif", 20, 20],
-  ["themes/default/images/smilies/laugh.gif", 20, 20],
-  ["themes/default/images/smilies/cool2.gif", 20, 20],
-  ["themes/default/images/smilies/fun.gif", 20, 20],
-  ["themes/default/images/smilies/thumbsup.gif", 36, 18],
-  ["themes/default/images/smilies/thumbsdown.gif", 27, 18],
-  ["themes/default/images/smilies/blush.gif", 20, 20],
-  ["themes/default/images/smilies/weep.gif", 18, 18],
-  ["themes/default/images/smilies/unsure.gif", 20, 20],
-  ["themes/default/images/smilies/closedeyes.gif", 20, 20],
-  ["themes/default/images/smilies/yes.gif", 20, 20],
-  ["themes/default/images/smilies/no.gif", 20, 20],
-  ["themes/default/images/smilies/kaffee.gif", 32, 32],
-  ["themes/default/images/smilies/love.gif", 19, 19],
-  ["themes/default/images/smilies/question.gif", 19, 19],
-  ["themes/default/images/smilies/excl.gif", 20, 20],
-  ["themes/default/images/smilies/idea.gif", 19, 19],
-  ["themes/default/images/smilies/hmm.gif", 20, 20],
-  ["themes/default/images/smilies/huh.gif", 20, 20],
-  ["themes/default/images/smilies/w00t.gif", 18, 20],
-  ["themes/default/images/smilies/geek.gif", 18, 18],
-  ["themes/default/images/smilies/look.gif", 20, 18],
-  ["themes/default/images/smilies/rolleyes.gif", 20, 20],
-  ["themes/default/images/smilies/kiss.gif", 18, 18],
-  ["themes/default/images/smilies/shifty.gif", 20, 20],
-  ["themes/default/images/smilies/blink.gif", 20, 20],
-  ["themes/default/images/smilies/smartass.gif", 25, 22],
-  ["themes/default/images/smilies/sick.gif", 20, 20],
-  ["themes/default/images/smilies/crazy.gif", 20, 20],
-  ["themes/default/images/smilies/wacko.gif", 20, 20],
-  ["themes/default/images/smilies/alien.gif", 20, 20],
-  ["themes/default/images/smilies/wizard.gif", 24, 30],
-  ["themes/default/images/smilies/wave.gif", 26, 18],
-  ["themes/default/images/smilies/wavecry.gif", 26, 18],
-  ["themes/default/images/smilies/baby.gif", 20, 22],
-  ["themes/default/images/smilies/ras.gif", 20, 20],
-  ["themes/default/images/smilies/sly.gif", 18, 18],
-  ["themes/default/images/smilies/devil.gif", 18, 23],
-  ["themes/default/images/smilies/evil.gif", 18, 18],
-  ["themes/default/images/smilies/evilmad.gif", 20, 20],
-  ["themes/default/images/smilies/yucky.gif", 20, 20],
-  ["themes/default/images/smilies/nugget.gif", 20, 20],
-  ["themes/default/images/smilies/sneaky.gif", 18, 18],
-  ["themes/default/images/smilies/smart.gif", 18, 20],
-  ["themes/default/images/smilies/shutup.gif", 20, 20],
-  ["themes/default/images/smilies/shutup2.gif", 29, 18],
-  ["themes/default/images/smilies/yikes.gif", 19, 25],
-  ["themes/default/images/smilies/flowers.gif", 28, 18],
-  ["themes/default/images/smilies/wub.gif", 22, 29],
-  ["themes/default/images/smilies/osama.gif", 18, 25],
-  ["themes/default/images/smilies/saddam.gif", 18, 25],
-  ["themes/default/images/smilies/santa.gif", 20, 22],
-  ["themes/default/images/smilies/indian.gif", 24, 29],
-  ["themes/default/images/smilies/guns.gif", 38, 18],
-  ["themes/default/images/smilies/crockett.gif", 23, 22],
-  ["themes/default/images/smilies/zorro.gif", 26, 22],
-  ["themes/default/images/smilies/snap.gif", 27, 21],
-  ["themes/default/images/smilies/beer.gif", 59, 21],
-  ["themes/default/images/smilies/drunk.gif", 58, 30],
-  ["themes/default/images/smilies/sleeping.gif", 20, 27],
-  ["themes/default/images/smilies/mama.gif", 18, 32],
-  ["themes/default/images/smilies/pepsi.gif", 45, 25],
-  ["themes/default/images/smilies/medieval.gif", 39, 27],
-  ["themes/default/images/smilies/rambo.gif", 21, 18],
-  ["themes/default/images/smilies/ninja.gif", 20, 20],
-  ["themes/default/images/smilies/hannibal.gif", 18, 18],
-  ["themes/default/images/smilies/party.gif", 18, 25],
-  ["themes/default/images/smilies/snorkle.gif", 25, 38],
-  ["themes/default/images/smilies/evo.gif", 18, 18],
-  ["themes/default/images/smilies/king.gif", 23, 25],
-  ["themes/default/images/smilies/chef.gif", 23, 28],
-  ["themes/default/images/smilies/mario.gif", 21, 20],
-  ["themes/default/images/smilies/pope.gif", 20, 36],
-  ["themes/default/images/smilies/fez.gif", 19, 24],
-  ["themes/default/images/smilies/cap.gif", 20, 20],
-  ["themes/default/images/smilies/cowboy.gif", 22, 20],
-  ["themes/default/images/smilies/pirate.gif", 20, 18],
-  ["themes/default/images/smilies/rock.gif", 20, 20],
-  ["themes/default/images/smilies/cigar.gif", 22, 25],
-  ["themes/default/images/smilies/icecream.gif", 22, 25],
-  ["themes/default/images/smilies/oldtimer.gif", 28, 29],
-  ["themes/default/images/smilies/wolverine.gif", 20, 20],
-  ["themes/default/images/smilies/strongbench.gif", 40, 21],
-  ["themes/default/images/smilies/weakbench.gif", 35, 21],
-  ["themes/default/images/smilies/bike.gif", 31, 31],
-  ["themes/default/images/smilies/music.gif", 26, 24],
-  ["themes/default/images/smilies/book.gif", 35, 20],
-  ["themes/default/images/smilies/fish.gif", 60, 25],
-  ["themes/default/images/smilies/whistle.gif", 35, 20],
-  ["themes/default/images/smilies/stupid.gif", 53, 51],
-  ["themes/default/images/smilies/dots.gif", 46, 51],
-  ["themes/default/images/smilies/axe.gif", 27, 28],
-  ["themes/default/images/smilies/hooray.gif", 31, 26],
-  ["themes/default/images/smilies/yay.gif", 40, 60],
-  ["themes/default/images/smilies/cake.gif", 28, 25],
-  ["themes/default/images/smilies/hbd.gif", 81, 26],
-  ["themes/default/images/smilies/hi.gif", 60, 45],
-  ["themes/default/images/smilies/offtopic.gif", 44, 49],
-  ["themes/default/images/smilies/band.gif", 125, 37],
-  ["themes/default/images/smilies/hump.gif", 80, 24],
-  ["themes/default/images/smilies/punk.gif", 33, 30],
-  ["themes/default/images/smilies/bounce.gif", 25, 36],
-  ["themes/default/images/smilies/group.gif", 70, 18],
-  ["files/imagecache/70613_console_new.gif", 46, 20],
-  ["themes/default/images/smilies/smurf.gif", 20, 24],
-  ["themes/default/images/smilies/soldiers.gif", 100, 105],
-  ["themes/default/images/smilies/spidey.gif", 18, 18],
-  ["themes/default/images/smilies/rant.gif", 33, 37],
-  ["themes/default/images/smilies/pimp.gif", 22, 25],
-  ["themes/default/images/smilies/nuke.gif", 20, 20],
-  ["themes/default/images/smilies/judge.gif", 30, 26],
-  ["themes/default/images/smilies/jacko.gif", 18, 18],
-  ["themes/default/images/smilies/ike.gif", 22, 22],
-  ["themes/default/images/smilies/greedy.gif", 18, 18],
-  ["themes/default/images/smilies/dumbells.gif", 32, 18],
-  ["themes/default/images/smilies/clover.gif", 37, 32],
-  ["themes/default/images/smilies/uglywoot.gif", 41, 46],
-  ["themes/default/images/smilies/uangel.gif", 30, 23],
-  ["themes/default/images/smilies/ustone.gif", 16, 15],
-  ["themes/default/images/smilies/uzzz.gif", 16, 30],
-  ["themes/default/images/smilies/usorry.gif", 50, 24],
-  ["themes/default/images/smilies/usanta.gif", 30, 30],
-  ["themes/default/images/smilies/usex.gif", 29, 31],
-  ["themes/default/images/smilies/uwave.gif", 25, 16],
-  ["themes/default/images/smilies/uno.gif", 32, 22],
-  ["themes/default/images/smilies/urock.gif", 29, 25],
-  ["themes/default/images/smilies/ulove.gif", 16, 25],
-  ["themes/default/images/smilies/uball.gif", 25, 49],
-  ["themes/default/images/smilies/ubuschmann.gif", 23, 34],
-  ["themes/default/images/smilies/stockpieks.gif", 60, 20],
-  ["themes/default/images/smilies/popoklatsch.gif", 48, 40],
-  ["themes/default/images/smilies/knutschi.gif", 44, 18],
-  ["themes/default/images/smilies/narf.gif", 18, 18],
-  ["themes/default/images/smilies/2uglys.gif", 59, 50],
-  ["themes/default/images/smilies/kakapferdchen.gif", 56, 66],
-  ["themes/default/images/smilies/brrr.gif", 26, 32],
-  ["themes/default/images/smilies/blol2.gif", 29, 27],
-  ["themes/default/images/smilies/beek.gif", 15, 15],
-  ["themes/default/images/smilies/Basi.gif", 50, 40],
-  ["themes/default/images/smilies/pullcar.gif", 120, 38],
   // Add your own imgs here:
   ["files/imagecache/63733_Bouncing_Kirby.gif", 28, 28],
   ["files/imagecache/63733_Gary.gif", 28, 28],
@@ -420,12 +273,12 @@ let links = [
   ["files/imagecache/63733_pepe-peppo.gif", 28, 28]
 ];
 
-const withoutDefaultEmojis = true;
-
-const standardHeight = 550;
-const newHeight = withoutDefaultEmojis ? 1000 : 1350;
-const rowElements = 22;
 const scalar = 1.35;
+
+const withoutDefaultEmojis = true;
+const standardHeight = 550;
+const newHeight = withoutDefaultEmojis ? 1050 : 1350;
+const rowElements = 22;
 
 let orgTable = null;
 let peaAttached = false;
@@ -475,8 +328,16 @@ function initPepe() {
     let std = getFirstSmiley();
     let tbl = getNthParent(std, 4);
     if (tbl != null) {
-      for (let i = 5; i >= 2; i--) {
-        tbl.deleteRow(i);
+      for (let i = 1; i <= 5; i++) {
+          let r = tbl.rows[i];
+          for (let j = 0; j < r.cells.length; j++) {
+              let c = r.cells[j].firstElementChild;
+              console.log(c);
+              if (c != null && c.tagName == "IMG") {
+                  c.style.width = '20px';
+                  c.style.height = '20px';
+              }
+          }
       }
       orgTable = tbl.cloneNode(true);
     }
@@ -639,10 +500,10 @@ function addSwitch(mode) {
     let a = document.createElement("a");
     a.href = "#";
     if (mode == 0) {
-      a.text = "hide";
+      a.text = "Close Pepe";
       a.addEventListener("click", hidePepe);
     } else {
-      a.text = "more ...";
+      a.text = "Pepe...";
       a.addEventListener("click", showPepe);
     }
     c.appendChild(a);
@@ -650,18 +511,19 @@ function addSwitch(mode) {
 }
 
 function resizeTds(rows) {
-  const diff = 30 - rowElements;
-  const low = Math.floor(diff / 4.0) + 1;
-  const hei = Math.ceil(diff / 4.0) + 1;
+  const max = 30;
+  //const diff = max - rowElements;
+  //const low = Math.floor(diff / 4.0) + 1;
+  //const hei = Math.ceil(diff / 4.0) + 1;
   for (let i = 0; i < rows.length; i++) {
     let r = rows[i];
-    while (r.cells.length < 30) {
+    while (r.cells.length < max) {
       r.insertCell(-1);
     }
-    r.cells[rowElements - 4].colSpan = low;
-    r.cells[rowElements - 3].colSpan = low;
-    r.cells[rowElements - 2].colSpan = hei;
-    r.cells[rowElements - 1].colSpan = hei;
+    r.cells[rowElements - 4].colSpan = 2;
+    r.cells[rowElements - 3].colSpan = 2;
+    r.cells[rowElements - 2].colSpan = 3;
+    r.cells[rowElements - 1].colSpan = 6;
   }
 }
 
