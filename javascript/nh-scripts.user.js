@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Userscript for NH
 // @namespace    https://openuserjs.org/users/log1x0
-// @version      0.0.5
+// @version      0.0.6
 // @description  Userscript for NH
 // @author       log1x0
 // @license      MIT
