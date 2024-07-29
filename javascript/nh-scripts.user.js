@@ -329,15 +329,15 @@ function initPepe() {
     let tbl = getNthParent(std, 4);
     if (tbl != null) {
       for (let i = 1; i <= 5; i++) {
-          let r = tbl.rows[i];
-          for (let j = 0; j < r.cells.length; j++) {
-              let c = r.cells[j].firstElementChild;
-              console.log(c);
-              if (c != null && c.tagName == "IMG") {
-                  c.style.width = '20px';
-                  c.style.height = '20px';
-              }
+        let r = tbl.rows[i];
+        for (let j = 0; j < r.cells.length; j++) {
+          let c = r.cells[j].firstElementChild;
+          console.log(c);
+          if (c != null && c.tagName == "IMG") {
+            c.style.width = "20px";
+            c.style.height = "20px";
           }
+        }
       }
       orgTable = tbl.cloneNode(true);
     }
