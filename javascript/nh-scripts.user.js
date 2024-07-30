@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Userscript for NH
 // @namespace    https://openuserjs.org/users/log1x0
-// @version      0.0.6
+// @version      0.0.7
 // @description  Userscript for NH
 // @author       log1x0
 // @license      MIT
@@ -331,11 +331,12 @@ function initPepe() {
       for (let i = 1; i <= 5; i++) {
         let r = tbl.rows[i];
         for (let j = 0; j < r.cells.length; j++) {
-          let c = r.cells[j].firstElementChild;
-          console.log(c);
-          if (c != null && c.tagName == "IMG") {
-            c.style.width = "20px";
-            c.style.height = "20px";
+          let c = r.cells[j];
+          let img = c.firstElementChild;
+          if (img != null && img.tagName == "IMG") {
+            img.style.width = "20px";
+            img.style.height = "20px";
+            c.style.textAlign = "center";
           }
         }
       }
@@ -520,10 +521,11 @@ function resizeTds(rows) {
     while (r.cells.length < max) {
       r.insertCell(-1);
     }
+    r.cells[rowElements - 5].colSpan = 2;
     r.cells[rowElements - 4].colSpan = 2;
     r.cells[rowElements - 3].colSpan = 2;
     r.cells[rowElements - 2].colSpan = 3;
-    r.cells[rowElements - 1].colSpan = 6;
+    r.cells[rowElements - 1].colSpan = 5;
   }
 }
 
