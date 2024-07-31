@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Userscript for NH
 // @namespace    https://openuserjs.org/users/log1x0
-// @version      0.0.7
+// @version      0.0.8
 // @description  Userscript for NH
 // @author       log1x0
 // @license      MIT
@@ -275,9 +275,8 @@ let links = [
 
 const scalar = 1.35;
 
-const withoutDefaultEmojis = true;
 const standardHeight = 550;
-const newHeight = withoutDefaultEmojis ? 1050 : 1350;
+const newHeight = 1050;
 const rowElements = 22;
 
 let orgTable = null;
@@ -340,6 +339,11 @@ function initPepe() {
           }
         }
       }
+
+      let c1 = tbl.rows[1].insertCell(-1);
+      let c2 = tbl.rows[5].cells[30];
+      c1.innerHTML = c2.innerHTML;
+
       orgTable = tbl.cloneNode(true);
     }
 
@@ -372,16 +376,6 @@ function getHeight(link) {
 }
 
 function initLinks() {
-  if (withoutDefaultEmojis) {
-    let targetLength = rowElements * 12;
-    for (let i = links.length - 1; i >= 0 && links.length != targetLength; i--) {
-      const e = links[i];
-      if (e[0].startsWith("themes/default/")) {
-        links.splice(i, 1);
-      }
-    }
-  }
-
   for (let i = 0; i < links.length; i++) {
     const e = links[i];
     e[0] = "https://newheaven.nl/" + e[0];
@@ -492,7 +486,7 @@ function addSwitch(mode) {
   let tbl = getNthParent(std, 4);
   if (tbl != null) {
     let rows = tbl.rows;
-    let r = rows[1];
+    let r = rows[5];
     while (r.cells.length > 30) {
       r.deleteCell(-1);
     }
@@ -513,9 +507,6 @@ function addSwitch(mode) {
 
 function resizeTds(rows) {
   const max = 30;
-  //const diff = max - rowElements;
-  //const low = Math.floor(diff / 4.0) + 1;
-  //const hei = Math.ceil(diff / 4.0) + 1;
   for (let i = 0; i < rows.length; i++) {
     let r = rows[i];
     while (r.cells.length < max) {
