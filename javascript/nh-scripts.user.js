@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Userscript for NH
 // @namespace    https://openuserjs.org/users/log1x0
-// @version      0.0.8
+// @version      0.0.9
 // @description  Userscript for NH
 // @author       log1x0
 // @license      MIT
@@ -84,7 +84,6 @@ let links = [
   ["files/imagecache/63726_smilie_wet_175.gif", 46, 24],
   ["files/imagecache/63733_pepe-069.gif", 50, 46],
   ["files/imagecache/63733_pepe-070.gif", 28, 28],
-  ["files/imagecache/63733_pepe-071.gif", 88, 19],
   ["files/imagecache/63733_pepe-072.gif", 48, 30],
   ["files/imagecache/63733_pepe-074.gif", 40, 25],
   ["files/imagecache/63733_pepe-075.gif", 18, 18],
@@ -143,12 +142,10 @@ let links = [
   ["files/imagecache/63837_pirate.gif", 42, 42],
   ["files/imagecache/63837_coffeem.gif", 29, 30],
   ["files/imagecache/63837_yawnm.gif", 20, 23],
-  ["files/imagecache/63837_shoot.gif", 120, 20],
   ["files/imagecache/63837_pirate2.gif", 25, 25],
   ["files/imagecache/63837_wave2.gif", 26, 18],
   ["files/imagecache/63837_0579.gif", 34, 26],
   ["files/imagecache/63837_0581.gif", 31, 28],
-  ["files/imagecache/63837_0564.gif", 109, 33],
   ["files/imagecache/63837_santa.gif", 20, 22],
   ["files/imagecache/63837_user%20delete.gif", 80, 80],
   ["files/imagecache/63837_97c4247b2d741ff6c721f26cda5a48ef.gif", 69, 46],
@@ -156,11 +153,9 @@ let links = [
   ["files/imagecache/63837_2d2a5515902de4c05b1cx42.gif", 27, 24],
   ["files/imagecache/63837_rip.gif", 43, 34],
   ["files/imagecache/63837_censored.gif", 48, 18],
-  ["files/imagecache/63837_0424.gif", 43, 27],
   ["files/imagecache/63837_0567.gif", 40, 30],
   ["files/imagecache/63837_whiteflag.gif", 54, 40],
   ["files/imagecache/63837_doppelbatsch.gif", 100, 50],
-  ["files/imagecache/63837_007.gif", 126, 56],
   ["files/imagecache/63837_explode.gif", 48, 112],
   ["files/imagecache/63837_hmmm.gif", 25, 23],
   ["files/imagecache/63837_0538.gif", 60, 55],
@@ -185,7 +180,6 @@ let links = [
   ["files/imagecache/60835_mwrel634yyk.gif", 60, 34],
   ["files/imagecache/60835_0eadb9tf3sj.gif", 27, 27],
   ["files/imagecache/63733_Kaffee-G%C3%A4hn.gif", 104, 64],
-  ["files/imagecache/60835_xntkyxe3mk7.gif", 50, 35],
   ["files/imagecache/60835_uriwd79j509.gif", 136, 81],
   ["files/imagecache/60835_j1v404ijrbp.gif", 92, 45],
   ["files/imagecache/60835_m1l1my18m6u.gif", 48, 34],
@@ -195,18 +189,15 @@ let links = [
   ["files/imagecache/60835_w7j8d2b27b8.gif", 98, 60],
   ["files/imagecache/60835_ha2xo4bmnw0.gif", 67, 62],
   ["files/imagecache/60835_4lfkh3dczw2.gif", 35, 30],
-  ["files/imagecache/60835_7wkeiyd4s4r.gif", 79, 55],
   ["files/imagecache/60835_4ycax4rze0t.gif", 74, 32],
   ["files/imagecache/60835_lvyj29uy41w.gif", 89, 40],
   ["files/imagecache/60835_qpscbjc8np1.gif", 120, 44],
   ["files/imagecache/60835_1ze6f5a9qv0.gif", 48, 51],
   ["files/imagecache/60835_6p7wagn8zb9.gif", 71, 53],
   ["files/imagecache/60835_rn3tshdb8tu.gif", 120, 100],
-  ["files/imagecache/60835_ycdy3qc1fdp.gif", 93, 54],
   ["files/imagecache/60835_ukvaf7lmnx0.gif", 64, 51],
   ["files/imagecache/60835_83yak1h0vun.gif", 43, 36],
   ["files/imagecache/60835_hase.gif", 74, 54],
-  ["files/imagecache/60835_chill.gif", 59, 34],
   ["files/imagecache/60835_x7y3azegxgz.gif", 19, 18],
   ["files/imagecache/60835_gtfqbjst0pm.gif", 77, 30],
   ["files/imagecache/60835_ejfsvutvlev.gif", 47, 59],
@@ -220,8 +211,6 @@ let links = [
   ["files/imagecache/60835_9cyu4mtxve8.gif", 43, 39],
   ["files/imagecache/60835_o018f09hkfs.gif", 26, 22],
   ["files/imagecache/60835_kjcq2pi9lq6.gif", 45, 50],
-  // Default imgs:
-  // Add your own imgs here:
   ["files/imagecache/63733_Bouncing_Kirby.gif", 28, 28],
   ["files/imagecache/63733_Gary.gif", 28, 28],
   ["files/imagecache/63733_Smoking.gif", 28, 28],
