@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Userscript for NH
 // @namespace    https://openuserjs.org/users/log1x0
-// @version      0.0.10
+// @version      0.0.11
 // @description  Userscript for NH
 // @author       log1x0
 // @license      MIT
@@ -367,12 +367,12 @@ function getHeight(link) {
 
 function initLinks() {
   for (let i = 0; i < links.length; i++) {
-    const e = links[i];
+    let e = links[i];
     e[0] = "https://newheaven.nl/" + e[0];
   }
 
-  const w = rowElements;
-  const h = Math.ceil(links.length / w);
+  let w = rowElements;
+  let h = Math.ceil(links.length / w);
 
   while (links.length < w * h) {
     // Placeholder img (transparent):
@@ -408,13 +408,14 @@ function showPepe() {
   let tb = getNthParent(std, 3);
   if (tb != null) {
     let newRows = [];
+    let title_index = 1;
     for (let i = 0; i < links.length; i++) {
-      const row_links = links[i];
+      let row_links = links[i];
       tb.appendChild(document.createElement("tr"));
       let tr = document.createElement("tr");
       for (let j = 0; j < row_links.length; j++) {
-        const col_link = row_links[j];
-        addTd(tr, col_link);
+        let col_link = row_links[j];
+        addTd(tr, col_link, title_index++, i + 1, j + 1);
       }
       tb.appendChild(tr);
       newRows.push(tr);
@@ -455,8 +456,8 @@ function getNthParent(elem, i) {
   return getNthParent(elem.parentNode, i - 1);
 }
 
-function addTd(tr, link) {
-  let title = link[0].substring(link[0].lastIndexOf("/") + 1);
+function addTd(tr, link, title_index, row_index, col_index) {
+  let title = pad(title_index, 3) + "_r" + pad(row_index, 2) + "_c" + pad(col_index, 2) + "_" + link[0].substring(link[0].lastIndexOf("/") + 1);
 
   let td = document.createElement("td");
   let img = document.createElement("img");
@@ -497,7 +498,7 @@ function addSwitch(mode) {
 }
 
 function resizeTds(rows) {
-  const max = 30;
+  let max = 30;
   for (let i = 0; i < rows.length; i++) {
     let r = rows[i];
     while (r.cells.length < max) {
@@ -704,11 +705,11 @@ function excludeFilter(text, words) {
 function hidePea() {
   if (!peaAttached) {
     peaAttached = true;
-    const pepe = document.querySelector("#pepe-search");
+    let pepe = document.querySelector("#pepe-search");
     if (pepe) {
-      const nameArray = [];
+      let nameArray = [];
       pepe.addEventListener("keyup", function (event) {
-        const name = event.key;
+        let name = event.key;
         nameArray.push(name);
         while (nameArray.length > 3) {
           nameArray.shift();
@@ -737,11 +738,11 @@ function hidePea() {
 
 function hidePea1() {
   if (localStorage.hidePea == 1) {
-    const words = localStorage.fWords;
-    const body = document.querySelector("html > body > table:nth-of-type(2) > tbody");
+    let words = localStorage.fWords;
+    let body = document.querySelector("html > body > table:nth-of-type(2) > tbody");
     if (body) {
       for (let i = 0; i < body.rows.length; ) {
-        const element = body.rows[i].innerText;
+        let element = body.rows[i].innerText;
         if (excludeFilter(element, words)) {
           body.deleteRow(i);
         } else {
