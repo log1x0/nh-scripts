@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Userscript for NH
 // @namespace    https://openuserjs.org/users/log1x0
-// @version      0.0.12
+// @version      0.0.13
 // @description  Userscript for NH
 // @author       log1x0
 // @license      MIT
@@ -605,7 +605,7 @@ function addExcludeButton() {
     input.type = "button";
     input.value = "Exclude";
     input.onclick = function () {
-      let excludeRegex = prompt("Exclude contains regex (case insensitive):", "mst$");
+      let excludeRegex = prompt("Exclude contains regex (case insensitive):", localStorage.excludeRegex || "mst$");
       if (excludeRegex != null) {
         localStorage.excludeRegex = excludeRegex;
       } else {
@@ -699,81 +699,3 @@ function setStyle() {
   // uncomment this, if the font size should be increased:
   //document.querySelectorAll("font, td").forEach(function (e) { e.style.fontSize = "9pt"; });
 }
-
-function excludeFilter(text, words) {
-  text = text.toLowerCase();
-  words = words.toLowerCase();
-  let w1 = words.split(";");
-  for (let i = 0; i < w1.length; i++) {
-    let w2 = w1[i].split(",");
-    let k = 0;
-    for (let j = 0; j < w2.length; j++) {
-      let w3 = w2[j];
-      if (w3.startsWith("!")) {
-        w3 = w3.substring(1);
-        if (!text.includes(w3)) {
-          k++;
-        }
-      } else {
-        if (text.includes(w3)) {
-          k++;
-        }
-      }
-    }
-    if (k == w2.length) {
-      return true;
-    }
-  }
-  return false;
-}
-
-// function hidePea() {
-//   if (!peaAttached) {
-//     peaAttached = true;
-//     let pepe = document.querySelector("#pepe-search");
-//     if (pepe) {
-//       let nameArray = [];
-//       pepe.addEventListener("keyup", function (event) {
-//         let name = event.key;
-//         nameArray.push(name);
-//         while (nameArray.length > 3) {
-//           nameArray.shift();
-//         }
-//         if (JSON.stringify(nameArray) == JSON.stringify(["p", "e", "a"])) {
-//           if (localStorage.hidePea == 1) {
-//             alert("Info: chickpea filter is deactivated.");
-//             localStorage.hidePea = 0;
-//           } else {
-//             let wordsOld = localStorage.fWords;
-//             let words = prompt(
-//               "SB-Filter: ,=and ;=or !=not. For Example chickpea,!requested by;<sth. you don't want to see...> (case-insensitive):",
-//               !wordsOld || wordsOld == "" ? "chickpea,!requested by" : wordsOld
-//             );
-//             if (!words || words == "") {
-//               words = "chickpea,!requested by";
-//             }
-//             localStorage.hidePea = 1;
-//             localStorage.fWords = words;
-//           }
-//         }
-//       });
-//     }
-//   }
-// }
-
-// function hidePea1() {
-//   if (localStorage.hidePea == 1) {
-//     let words = localStorage.fWords;
-//     let body = document.querySelector("html > body > table:nth-of-type(2) > tbody");
-//     if (body) {
-//       for (let i = 0; i < body.rows.length; ) {
-//         let element = body.rows[i].innerText;
-//         if (excludeFilter(element, words)) {
-//           body.deleteRow(i);
-//         } else {
-//           i++;
-//         }
-//       }
-//     }
-//   }
-// }
