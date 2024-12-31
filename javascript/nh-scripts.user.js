@@ -611,7 +611,7 @@ function addExcludeButton() {
       } else {
         localStorage.excludeRegex = "";
       }
-    }
+    };
     div.appendChild(input);
   }
 }
