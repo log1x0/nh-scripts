@@ -262,14 +262,15 @@ let links = [
   ["files/imagecache/63733_pepe-peppo.gif", 28, 28]
 ];
 
+// Adjust this:
 const scalar = 1.35;
 
+// Don't adjust these:
 const standardHeight = 550;
 const newHeight = 1050;
 const rowElements = 22;
 
 let orgTable = null;
-let peaAttached = false;
 
 (function () {
   "use strict";
@@ -278,13 +279,12 @@ let peaAttached = false;
     removeHints();
     addPepe();
     addPepeSearch();
-    addAiButton();
-    hidePea();
+    addExcludeButton();
   }
 
-  hidePea1();
   add_4k();
   addSwitchStyle();
+  checkExcludeRegex();
 })();
 
 function swapInput() {
@@ -595,17 +595,42 @@ function add_4k() {
   });
 }
 
-function addAiButton() {
+function addExcludeButton() {
   let comic = document.querySelector('input[value="Comic"]');
   let div = getNthParent(comic, 1);
   if (div != null) {
     let input = document.createElement("input");
-    input.id = "ai-button";
-    input.name = "ai-button";
+    input.id = "exclude-button";
+    input.name = "exclude-button";
     input.type = "button";
-    input.value = "ChatGPT";
-    input.setAttribute("onclick", "setTag('?chatgpt ');");
+    input.value = "Exclude";
+    input.onclick = function () {
+      let excludeRegex = prompt("Exclude contains regex (case insensitive):", "mst$");
+      if (excludeRegex != null) {
+        localStorage.excludeRegex = excludeRegex;
+      } else {
+        localStorage.excludeRegex = "";
+      }
+    }
     div.appendChild(input);
+  }
+}
+
+function checkExcludeRegex() {
+  let excludeRegex = localStorage.excludeRegex;
+  if (excludeRegex != null && excludeRegex != "") {
+    let re = new RegExp(excludeRegex, "i");
+    let body = document.querySelector("html > body > table:nth-of-type(2) > tbody");
+    if (body) {
+      for (let i = 0; i < body.rows.length; ) {
+        let element = body.rows[i].innerText.trim();
+        if (re.test(element)) {
+          body.deleteRow(i);
+        } else {
+          i++;
+        }
+      }
+    }
   }
 }
 
@@ -702,53 +727,53 @@ function excludeFilter(text, words) {
   return false;
 }
 
-function hidePea() {
-  if (!peaAttached) {
-    peaAttached = true;
-    let pepe = document.querySelector("#pepe-search");
-    if (pepe) {
-      let nameArray = [];
-      pepe.addEventListener("keyup", function (event) {
-        let name = event.key;
-        nameArray.push(name);
-        while (nameArray.length > 3) {
-          nameArray.shift();
-        }
-        if (JSON.stringify(nameArray) == JSON.stringify(["p", "e", "a"])) {
-          if (localStorage.hidePea == 1) {
-            alert("Info: chickpea filter is deactivated.");
-            localStorage.hidePea = 0;
-          } else {
-            let wordsOld = localStorage.fWords;
-            let words = prompt(
-              "SB-Filter: ,=and ;=or !=not. For Example chickpea,!requested by;<sth. you don't want to see...> (case-insensitive):",
-              !wordsOld || wordsOld == "" ? "chickpea,!requested by" : wordsOld
-            );
-            if (!words || words == "") {
-              words = "chickpea,!requested by";
-            }
-            localStorage.hidePea = 1;
-            localStorage.fWords = words;
-          }
-        }
-      });
-    }
-  }
-}
+// function hidePea() {
+//   if (!peaAttached) {
+//     peaAttached = true;
+//     let pepe = document.querySelector("#pepe-search");
+//     if (pepe) {
+//       let nameArray = [];
+//       pepe.addEventListener("keyup", function (event) {
+//         let name = event.key;
+//         nameArray.push(name);
+//         while (nameArray.length > 3) {
+//           nameArray.shift();
+//         }
+//         if (JSON.stringify(nameArray) == JSON.stringify(["p", "e", "a"])) {
+//           if (localStorage.hidePea == 1) {
+//             alert("Info: chickpea filter is deactivated.");
+//             localStorage.hidePea = 0;
+//           } else {
+//             let wordsOld = localStorage.fWords;
+//             let words = prompt(
+//               "SB-Filter: ,=and ;=or !=not. For Example chickpea,!requested by;<sth. you don't want to see...> (case-insensitive):",
+//               !wordsOld || wordsOld == "" ? "chickpea,!requested by" : wordsOld
+//             );
+//             if (!words || words == "") {
+//               words = "chickpea,!requested by";
+//             }
+//             localStorage.hidePea = 1;
+//             localStorage.fWords = words;
+//           }
+//         }
+//       });
+//     }
+//   }
+// }
 
-function hidePea1() {
-  if (localStorage.hidePea == 1) {
-    let words = localStorage.fWords;
-    let body = document.querySelector("html > body > table:nth-of-type(2) > tbody");
-    if (body) {
-      for (let i = 0; i < body.rows.length; ) {
-        let element = body.rows[i].innerText;
-        if (excludeFilter(element, words)) {
-          body.deleteRow(i);
-        } else {
-          i++;
-        }
-      }
-    }
-  }
-}
+// function hidePea1() {
+//   if (localStorage.hidePea == 1) {
+//     let words = localStorage.fWords;
+//     let body = document.querySelector("html > body > table:nth-of-type(2) > tbody");
+//     if (body) {
+//       for (let i = 0; i < body.rows.length; ) {
+//         let element = body.rows[i].innerText;
+//         if (excludeFilter(element, words)) {
+//           body.deleteRow(i);
+//         } else {
+//           i++;
+//         }
+//       }
+//     }
+//   }
+// }
