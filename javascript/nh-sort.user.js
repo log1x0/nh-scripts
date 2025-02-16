@@ -19,14 +19,17 @@
     }
     trs.push(tr);
   }
-  console.log(trs);
-  let trs2 = trs.toSorted((a, b) => {
+  trs.sort((a, b) => {
     let x = parseInt(a.cells[7].innerText) + parseInt(a.cells[8].innerText);
     let y = parseInt(b.cells[7].innerText) + parseInt(b.cells[8].innerText);
     return y - x;
   });
-  console.log(trs2);
+  let tbody = document.querySelector('.torrenttable > tbody');
   for (let i = 0; i < trs.length; i++) {
-    trs[i].innerHTML = trs2[i].innerHTML;
+    tbody.deleteRow(1);
+  }
+  for (let i = 0; i < trs.length; i++) {
+    let r = tbody.insertRow(i + 1);
+    r.innerHTML = trs[i].innerHTML;
   }
 })();
