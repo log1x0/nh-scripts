@@ -10,23 +10,23 @@
 // ==/UserScript==
 
 (function () {
-    "use strict";
-    let trs = [];
-    for (let i = 2; ; i++) {
-        let tr = document.querySelector(`.torrenttable > tbody:nth-child(1) > tr:nth-child(${i})`);
-        if (!tr) {
-            break;
-        }
-        trs.push(tr);
+  "use strict";
+  let trs = [];
+  for (let i = 2; ; i++) {
+    let tr = document.querySelector(`.torrenttable > tbody:nth-child(1) > tr:nth-child(${i})`);
+    if (!tr) {
+      break;
     }
-    console.log(trs);
-    let trs2 = trs.toSorted((a, b) => {
-        let x = parseInt(a.cells[7].innerText) + parseInt(a.cells[8].innerText);
-        let y = parseInt(b.cells[7].innerText) + parseInt(b.cells[8].innerText);
-        return y - x;
-    });
-    console.log(trs2);
-    for (let i = 0; i < trs.length; i++) {
-        trs[i].innerHTML = trs2[i].innerHTML;
-    }
+    trs.push(tr);
+  }
+  console.log(trs);
+  let trs2 = trs.toSorted((a, b) => {
+    let x = parseInt(a.cells[7].innerText) + parseInt(a.cells[8].innerText);
+    let y = parseInt(b.cells[7].innerText) + parseInt(b.cells[8].innerText);
+    return y - x;
+  });
+  console.log(trs2);
+  for (let i = 0; i < trs.length; i++) {
+    trs[i].innerHTML = trs2[i].innerHTML;
+  }
 })();
