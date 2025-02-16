@@ -24,7 +24,7 @@
     let y = parseInt(b.cells[7].innerText) + parseInt(b.cells[8].innerText);
     return y - x;
   });
-  let tbody = document.querySelector('.torrenttable > tbody');
+  let tbody = document.querySelector(".torrenttable > tbody");
   for (let i = 0; i < trs.length; i++) {
     tbody.deleteRow(1);
   }
