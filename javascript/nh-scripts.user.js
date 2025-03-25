@@ -1,16 +1,13 @@
 // ==UserScript==
 // @name         Userscript for NH
 // @namespace    https://openuserjs.org/users/log1x0
-// @version      0.1
+// @version      0.2
 // @description  Userscript for NH
 // @author       log1x0
 // @license      MIT
 // @grant        none
 // @match        https://newheaven.nl/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=newheaven.nl
-// @require      https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js
-// @require      https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js
-// @require      https://cdnjs.cloudflare.com/ajax/libs/jszip-utils/0.1.0/jszip-utils.min.js
 // ==/UserScript==
 
 // ==OpenUserJS==
@@ -265,7 +262,7 @@ let links = [
 // Adjust this if necessary:
 const scalar = 1.35;
 
-// Don't adjust these:
+// Don't adjust this:
 const standardHeight = 550;
 const newHeight = 1050;
 const rowElements = 22;
@@ -281,7 +278,6 @@ let orgTable = null;
     addPepeSearch();
     addExcludeButton();
   }
-
   add_4k();
   addSwitchStyle();
   checkExcludeRegex();
@@ -518,6 +514,7 @@ function addPepeSearch() {
   let div = getNthParent(comic, 1);
   if (div != null) {
     let input = document.createElement("input");
+    input.style.width = "8em";
     input.id = "pepe-search";
     input.name = "pepe-search";
     input.type = "text";
@@ -537,41 +534,6 @@ function pad(num, size) {
 
 function pepeSearchOnChange() {
   let text = document.getElementById("pepe-search").value;
-  if (text == "download") {
-    console.log("download");
-    let zip = new JSZip();
-    let count = 0;
-    let zipFilename = "pepe-v1.zip";
-    let urls = [];
-    for (let i = 0; i < links.length; i++) {
-      for (let j = 0; j < links[i].length; j++) {
-        if (!links[i][j][0].startsWith("data:image")) {
-          urls.push(links[i][j][0]);
-        }
-      }
-    }
-
-    urls.forEach(function (url) {
-      // loading a file and add it in a zip file
-      JSZipUtils.getBinaryContent(url, function (err, data) {
-        if (err) {
-          throw err; // or handle the error
-        }
-        let filename = url.substring(url.lastIndexOf("/") + 1);
-        filename = pad(count, 3) + "_" + filename;
-        console.log("filename", filename);
-        zip.file(filename, data, { binary: true });
-        count++;
-        if (count == urls.length) {
-          zip.generateAsync({ type: "blob" }).then(function (content) {
-            saveAs(content, zipFilename);
-          });
-        }
-      });
-    });
-    return;
-  }
-
   let imgs = document.getElementsByTagName("img");
   for (let i = 0; i < imgs.length; i++) {
     let e = imgs[i];
@@ -601,6 +563,7 @@ function addExcludeButton() {
   let div = getNthParent(comic, 1);
   if (div != null) {
     let input = document.createElement("input");
+    input.className = "submitbutton";
     input.id = "exclude-button";
     input.name = "exclude-button";
     input.type = "button";
@@ -613,6 +576,7 @@ function addExcludeButton() {
         localStorage.excludeRegex = "";
       }
     };
+    div.appendChild(document.createTextNode(" "));
     div.appendChild(input);
   }
 }
@@ -702,18 +666,43 @@ function setStyle() {
 }
 
 function splitShoutBox() {
-  let tblParent = document.querySelector("html > body > table:nth-of-type(2)");
-  let tbl1 = document.querySelector("html > body > table:nth-of-type(2) > tbody");
-  if (tblParent != null && tbl1 != null) {
-    let tbl2 = tbl1.cloneNode(true);
-    tblParent.appendChild(document.createElement("hr"));
-    tblParent.appendChild(tbl2);
-    for (let i = tbl1.rows.length - 1; i >= 0; i--) {
-      let element = tbl1.rows[i].innerText.trim();
-      if (element.includes("ChickPea:")) {
-        tbl1.deleteRow(i);
-      } else {
-        tbl2.deleteRow(i);
+  if (!document.querySelector('input[name="split-button"]')) {
+    let eb = document.querySelector('input[name="exclude-button"]');
+    let div = getNthParent(eb, 1);
+    if (div != null) {
+      let input = document.createElement("input");
+      input.className = "submitbutton";
+      input.id = "split-button";
+      input.name = "split-button";
+      input.type = "button";
+      input.value = "Split SB";
+      input.onclick = function () {
+        if (localStorage.splitSB == "1") {
+          localStorage.splitSB = "0";
+        } else {
+          localStorage.splitSB = "1";
+        }
+        document.location.reload();
+      };
+      div.appendChild(document.createTextNode(" "));
+      div.appendChild(input);
+    }
+  }
+
+  if (localStorage.splitSB == "1") {
+    let tblParent = document.querySelector("html > body > table:nth-of-type(2)");
+    let tbl1 = document.querySelector("html > body > table:nth-of-type(2) > tbody");
+    if (tblParent != null && tbl1 != null) {
+      let tbl2 = tbl1.cloneNode(true);
+      tblParent.appendChild(document.createElement("hr"));
+      tblParent.appendChild(tbl2);
+      for (let i = tbl1.rows.length - 1; i >= 0; i--) {
+        let element = tbl1.rows[i].innerText.trim();
+        if (element.includes("ChickPea:")) {
+          tbl1.deleteRow(i);
+        } else {
+          tbl2.deleteRow(i);
+        }
       }
     }
   }
