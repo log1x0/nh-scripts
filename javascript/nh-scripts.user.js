@@ -259,7 +259,7 @@ let links = [
   ["files/imagecache/63733_pepe-meme.gif", 28, 28],
   ["files/imagecache/63733_coffee-cobbee.gif", 28, 28],
   ["files/imagecache/63733_BarnyGumble.gif", 28, 28],
-  ["files/imagecache/63733_freunde2.gif", 28, 28],
+  ["files/imagecache/63733_freunde2.gif", 28, 28]
 ];
 
 // Adjust this if necessary:
