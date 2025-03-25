@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Userscript for NH
 // @namespace    https://openuserjs.org/users/log1x0
-// @version      0.0.14
+// @version      0.1
 // @description  Userscript for NH
 // @author       log1x0
 // @license      MIT
@@ -285,6 +285,7 @@ let orgTable = null;
   add_4k();
   addSwitchStyle();
   checkExcludeRegex();
+  splitShoutBox();
 })();
 
 function swapInput() {
@@ -698,4 +699,22 @@ function setStyle() {
 
   // uncomment this, if the font size should be increased:
   //document.querySelectorAll("font, td").forEach(function (e) { e.style.fontSize = "9pt"; });
+}
+
+function splitShoutBox() {
+  let tblParent = document.querySelector("html > body > table:nth-of-type(2)");
+  let tbl1 = document.querySelector("html > body > table:nth-of-type(2) > tbody");
+  if (tblParent != null && tbl1 != null) {
+    let tbl2 = tbl1.cloneNode(true);
+    tblParent.appendChild(document.createElement("hr"));
+    tblParent.appendChild(tbl2);
+    for (let i = tbl1.rows.length - 1; i >= 0; i--) {
+      let element = tbl1.rows[i].innerText.trim();
+      if (element.includes("ChickPea:")) {
+        tbl1.deleteRow(i);
+      } else {
+        tbl2.deleteRow(i);
+      }
+    }
+  }
 }
