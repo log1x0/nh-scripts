@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Userscript for NH
 // @namespace    https://openuserjs.org/users/log1x0
-// @version      0.2
+// @version      0.3
 // @description  Userscript for NH
 // @author       log1x0
 // @license      MIT
@@ -682,7 +682,7 @@ function splitShoutBox() {
         } else {
           localStorage.splitSB = "1";
         }
-        document.location.reload();
+        window.location.reload(true);
       };
       div.appendChild(document.createTextNode(" "));
       div.appendChild(input);
