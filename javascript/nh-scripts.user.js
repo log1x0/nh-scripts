@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Userscript for NH
 // @namespace    https://openuserjs.org/users/log1x0
-// @version      0.4
+// @version      0.5
 // @description  Userscript for NH
 // @author       log1x0
 // @license      MIT
@@ -310,7 +310,8 @@ function addPepe() {
   let style = document.createElement("style");
   style.textContent = `
     .pepe-emoji:hover {
-      transform: scale(2.5);
+      transform: scale(1.75);
+      transition-delay: 0.5s;
     }
     `;
   document.head.appendChild(style);
