@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Userscript for NH
 // @namespace    https://openuserjs.org/users/log1x0
-// @version      0.3
+// @version      0.4
 // @description  Userscript for NH
 // @author       log1x0
 // @license      MIT
@@ -307,6 +307,13 @@ function addPepe() {
   initPepe();
   showPepe();
   hidePepe();
+  let style = document.createElement("style");
+  style.textContent = `
+    .pepe-emoji:hover {
+      transform: scale(2.5);
+    }
+    `;
+  document.head.appendChild(style);
 }
 
 function initPepe() {
@@ -465,6 +472,7 @@ function addTd(tr, link, title_index, row_index, col_index) {
   img.height = getHeight(link);
   img.setAttribute("onclick", "setTag('[IMG]" + link[0] + "[/IMG]');");
   img.title = title;
+  img.classList.add("pepe-emoji");
   td.appendChild(img);
   tr.appendChild(td);
 }
