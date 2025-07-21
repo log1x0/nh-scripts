@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Userscript for NH
 // @namespace    https://openuserjs.org/users/log1x0
-// @version      0.5
+// @version      0.6
 // @description  Userscript for NH
 // @author       log1x0
 // @license      MIT
@@ -14,7 +14,7 @@
 // @author log1x0
 // ==/OpenUserJS==
 
-let links = [
+let urls = [
   ["files/imagecache/63726_pepe-001.gif", 28, 28],
   ["files/imagecache/63733_pepe-095.gif", 28, 28],
   ["files/imagecache/63726_pepe-002.png", 28, 28],
@@ -264,7 +264,7 @@ const scalar = 1.35;
 
 // Don't adjust this:
 const standardHeight = 550;
-const newHeight = 1050;
+const newHeight = 1100;
 const rowElements = 22;
 
 let orgTable = null;
@@ -287,7 +287,7 @@ let orgTable = null;
 function swapInput() {
   let msg = document.querySelector("#message");
   let tbl = getNthParent(msg, 4);
-  if (tbl != null) {
+  if (tbl) {
     let row1 = tbl.rows[tbl.rows.length - 2].cloneNode(true);
     tbl.deleteRow(tbl.rows.length - 2);
     let row2 = tbl.insertRow(-1);
@@ -308,26 +308,24 @@ function addPepe() {
   showPepe();
   hidePepe();
   let style = document.createElement("style");
-  style.textContent = `
-    .pepe-emoji:hover {
-      transform: scale(1.75);
-      transition-delay: 0.5s;
-    }
-    `;
+  style.textContent += '.pepe-emoji:hover {\n';
+  style.textContent += '  transform: scale(1.75);\n';
+  style.textContent += '  transition-delay: 0.5s;\n';
+  style.textContent += '}\n';
   document.head.appendChild(style);
 }
 
 function initPepe() {
-  if (orgTable == null) {
+  if (!orgTable) {
     let std = getFirstSmiley();
     let tbl = getNthParent(std, 4);
-    if (tbl != null) {
+    if (tbl) {
       for (let i = 1; i <= 5; i++) {
         let r = tbl.rows[i];
         for (let j = 0; j < r.cells.length; j++) {
           let c = r.cells[j];
           let img = c.firstElementChild;
-          if (img != null && img.tagName == "IMG") {
+          if (img && img.tagName == "IMG") {
             img.style.width = "20px";
             img.style.height = "20px";
             c.style.textAlign = "center";
@@ -342,13 +340,13 @@ function initPepe() {
       orgTable = tbl.cloneNode(true);
     }
 
-    initLinks();
+    initUrls();
   }
 }
 
-function getWidth(link) {
-  let w = link[1];
-  let h = link[2];
+function getWidth(url) {
+  let w = url[1];
+  let h = url[2];
   let f = scalar;
   if (w >= h) {
     f *= 20.0 / h;
@@ -358,9 +356,9 @@ function getWidth(link) {
   return Math.round(w * f);
 }
 
-function getHeight(link) {
-  let w = link[1];
-  let h = link[2];
+function getHeight(url) {
+  let w = url[1];
+  let h = url[2];
   let f = scalar;
   if (w >= h) {
     f *= 20.0 / h;
@@ -370,38 +368,38 @@ function getHeight(link) {
   return Math.round(h * f);
 }
 
-function initLinks() {
-  for (let i = 0; i < links.length; i++) {
-    let e = links[i];
+function initUrls() {
+  for (let i = 0; i < urls.length; i++) {
+    let e = urls[i];
     e[0] = "https://newheaven.nl/" + e[0];
   }
 
   let w = rowElements;
-  let h = Math.ceil(links.length / w);
+  let h = Math.ceil(urls.length / w);
 
-  while (links.length < w * h) {
+  while (urls.length < w * h) {
     // Placeholder img (transparent):
-    links.push(["data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==", 18, 18]);
+    urls.push(["data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==", 18, 18]);
   }
 
-  links.sort(function (a, b) {
+  urls.sort(function (a, b) {
     return getWidth(a) - getWidth(b);
   });
-  let newLinks = [];
+  let newUrls = [];
   for (let i = 0; i < h; i++) {
     for (let j = 0; j < w; j++) {
       let idx = j * h + i;
-      if (idx < links.length) {
-        newLinks.push(links[idx]);
+      if (idx < urls.length) {
+        newUrls.push(urls[idx]);
       }
     }
   }
 
-  let newLinks2 = [];
-  while (newLinks.length) {
-    newLinks2.push(newLinks.splice(0, w));
+  let newUrls2 = [];
+  while (newUrls.length) {
+    newUrls2.push(newUrls.splice(0, w));
   }
-  links = newLinks2;
+  urls = newUrls2;
 }
 
 function getFirstSmiley() {
@@ -411,16 +409,16 @@ function getFirstSmiley() {
 function showPepe() {
   let std = getFirstSmiley();
   let tb = getNthParent(std, 3);
-  if (tb != null) {
+  if (tb) {
     let newRows = [];
     let title_index = 1;
-    for (let i = 0; i < links.length; i++) {
-      let row_links = links[i];
+    for (let i = 0; i < urls.length; i++) {
+      let row_urls = urls[i];
       tb.appendChild(document.createElement("tr"));
       let tr = document.createElement("tr");
-      for (let j = 0; j < row_links.length; j++) {
-        let col_link = row_links[j];
-        addTd(tr, col_link, title_index++, i + 1, j + 1);
+      for (let j = 0; j < row_urls.length; j++) {
+        let col_url = row_urls[j];
+        addTd(tr, col_url, title_index++, i + 1, j + 1);
       }
       tb.appendChild(tr);
       newRows.push(tr);
@@ -429,22 +427,22 @@ function showPepe() {
     addSwitch(0);
 
     let ifr = window.top.document.querySelector('[name="shoutbox"]');
-    if (ifr != null) {
+    if (ifr) {
       ifr.setAttribute("height", newHeight);
     }
   }
 }
 
 function hidePepe() {
-  if (orgTable != null) {
+  if (orgTable) {
     let std = getFirstSmiley();
     let tbl = getNthParent(std, 4);
-    if (tbl != null) {
+    if (tbl) {
       tbl.innerHTML = orgTable.innerHTML;
       addSwitch(1);
 
       let ifr = window.top.document.querySelector('[name="shoutbox"]');
-      if (ifr != null) {
+      if (ifr) {
         ifr.setAttribute("height", standardHeight);
       }
     }
@@ -452,7 +450,7 @@ function hidePepe() {
 }
 
 function getNthParent(elem, i) {
-  if (elem == null) {
+  if (!elem) {
     return null;
   }
   if (i <= 0) {
@@ -461,17 +459,17 @@ function getNthParent(elem, i) {
   return getNthParent(elem.parentNode, i - 1);
 }
 
-function addTd(tr, link, title_index, row_index, col_index) {
-  let title = pad(title_index, 3) + "_r" + pad(row_index, 2) + "_c" + pad(col_index, 2) + "_" + link[0].substring(link[0].lastIndexOf("/") + 1);
+function addTd(tr, url, title_index, row_index, col_index) {
+  let title = pad(title_index, 3) + "_r" + pad(row_index, 2) + "_c" + pad(col_index, 2) + "_" + url[0].substring(url[0].lastIndexOf("/") + 1);
 
   let td = document.createElement("td");
   let img = document.createElement("img");
   td.style.textAlign = "center";
   td.style.verticalAlign = "middle";
-  img.src = link[0];
-  img.width = getWidth(link);
-  img.height = getHeight(link);
-  img.setAttribute("onclick", "setTag('[IMG]" + link[0] + "[/IMG]');");
+  img.src = url[0];
+  img.width = getWidth(url);
+  img.height = getHeight(url);
+  img.setAttribute("onclick", "setTag('[IMG]" + url[0] + "[/IMG]');");
   img.title = title;
   img.classList.add("pepe-emoji");
   td.appendChild(img);
@@ -481,7 +479,7 @@ function addTd(tr, link, title_index, row_index, col_index) {
 function addSwitch(mode) {
   let std = getFirstSmiley();
   let tbl = getNthParent(std, 4);
-  if (tbl != null) {
+  if (tbl) {
     let rows = tbl.rows;
     let r = rows[5];
     while (r.cells.length > 30) {
@@ -521,7 +519,7 @@ function resizeTds(rows) {
 function addPepeSearch() {
   let comic = document.querySelector('input[value="Comic"]');
   let div = getNthParent(comic, 1);
-  if (div != null) {
+  if (div) {
     let input = document.createElement("input");
     input.style.width = "8em";
     input.id = "pepe-search";
@@ -570,7 +568,7 @@ function add_4k() {
 function addExcludeButton() {
   let comic = document.querySelector('input[value="Comic"]');
   let div = getNthParent(comic, 1);
-  if (div != null) {
+  if (div) {
     let input = document.createElement("input");
     input.className = "submitbutton";
     input.id = "exclude-button";
@@ -579,7 +577,7 @@ function addExcludeButton() {
     input.value = "Exclude";
     input.onclick = function () {
       let excludeRegex = prompt("Exclude contains regex (case insensitive):", localStorage.excludeRegex || "mst$");
-      if (excludeRegex != null) {
+      if (excludeRegex) {
         localStorage.excludeRegex = excludeRegex;
       } else {
         localStorage.excludeRegex = "";
@@ -592,7 +590,7 @@ function addExcludeButton() {
 
 function checkExcludeRegex() {
   let excludeRegex = localStorage.excludeRegex;
-  if (excludeRegex != null && excludeRegex != "") {
+  if (excludeRegex && excludeRegex != "") {
     let re = new RegExp(excludeRegex, "i");
     let body = document.querySelector("html > body > table:nth-of-type(2) > tbody");
     if (body) {
@@ -615,7 +613,7 @@ function addSwitchStyle() {
   }
 
   let select = document.querySelector('select[name="theme"]');
-  if (select != null) {
+  if (select) {
     let opt = document.createElement("option");
     opt.value = 9;
     opt.innerHTML = "Custom by Logi";
@@ -633,7 +631,7 @@ function addSwitchStyle() {
 
 function styleClick() {
   let select = document.querySelector('select[name="theme"]');
-  if (localStorage.shouldStyleSet && select != null && select.value == 9) {
+  if (localStorage.shouldStyleSet && select && select.value == 9) {
     localStorage.shouldStyleSet = 0;
     select.value = 1;
     document.detailbox.submit();
@@ -678,7 +676,7 @@ function splitShoutBox() {
   if (!document.querySelector('input[name="split-button"]')) {
     let eb = document.querySelector('input[name="exclude-button"]');
     let div = getNthParent(eb, 1);
-    if (div != null) {
+    if (div) {
       let input = document.createElement("input");
       input.className = "submitbutton";
       input.id = "split-button";
@@ -701,7 +699,7 @@ function splitShoutBox() {
   if (localStorage.splitSB == "1") {
     let tblParent = document.querySelector("html > body > table:nth-of-type(2)");
     let tbl1 = document.querySelector("html > body > table:nth-of-type(2) > tbody");
-    if (tblParent != null && tbl1 != null) {
+    if (tblParent && tbl1) {
       let tbl2 = tbl1.cloneNode(true);
       tblParent.appendChild(document.createElement("hr"));
       tblParent.appendChild(tbl2);
