@@ -308,10 +308,10 @@ function addPepe() {
   showPepe();
   hidePepe();
   let style = document.createElement("style");
-  style.textContent += '.pepe-emoji:hover {\n';
-  style.textContent += '  transform: scale(1.75);\n';
-  style.textContent += '  transition-delay: 0.5s;\n';
-  style.textContent += '}\n';
+  style.textContent += ".pepe-emoji:hover {\n";
+  style.textContent += "  transform: scale(1.75);\n";
+  style.textContent += "  transition-delay: 0.5s;\n";
+  style.textContent += "}\n";
   document.head.appendChild(style);
 }
 
