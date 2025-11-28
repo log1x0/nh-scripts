@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Userscript for NH
 // @namespace    https://openuserjs.org/users/log1x0
-// @version      0.7
+// @version      0.8
 // @description  Userscript for NH
 // @author       log1x0
 // @license      MIT
@@ -119,7 +119,7 @@ let urls = [
   ["files/imagecache/63733_pepe-147.gif", 32, 32],
   ["files/imagecache/63733_pepe-148.gif", 32, 32],
   ["files/imagecache/63733_pepe-149.gif", 32, 32],
-  ["files/imagecache/63733_barrio-sesamo-kermit(2).gif", 32, 32],
+  ["files/imagecache/63733_pepe-lecka.gif", 32, 32],
   ["files/imagecache/63733_pepe-151.gif", 32, 32],
   ["files/imagecache/63733_pepe-152.gif", 32, 32],
   ["files/imagecache/63733_pepe-153.gif", 32, 32],
