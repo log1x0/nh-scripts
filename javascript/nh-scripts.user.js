@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Userscript for NH
 // @namespace    https://openuserjs.org/users/log1x0
-// @version      0.6
+// @version      0.7
 // @description  Userscript for NH
 // @author       log1x0
 // @license      MIT
@@ -32,7 +32,7 @@ let urls = [
   ["files/imagecache/63726_pepe-012.png", 28, 28],
   ["files/imagecache/63726_pepe-013.png", 28, 28],
   ["files/imagecache/63733_pepe-clown.gif", 28, 28],
-  ["files/imagecache/63733_pepe-code-pepe-computer.gif", 28, 28],
+  ["files/imagecache/63733_sesamo-kermit.gif", 28, 28],
   ["files/imagecache/63733_pepe-082.png", 28, 28],
   ["files/imagecache/62587_3x-imageonline.co-4087141.gif", 28, 28],
   ["files/imagecache/56594_peepoFinger.png", 28, 28],
@@ -119,7 +119,7 @@ let urls = [
   ["files/imagecache/63733_pepe-147.gif", 32, 32],
   ["files/imagecache/63733_pepe-148.gif", 32, 32],
   ["files/imagecache/63733_pepe-149.gif", 32, 32],
-  ["files/imagecache/63733_pepe-lecka.gif", 32, 32],
+  ["files/imagecache/63733_barrio-sesamo-kermit(2).gif", 32, 32],
   ["files/imagecache/63733_pepe-151.gif", 32, 32],
   ["files/imagecache/63733_pepe-152.gif", 32, 32],
   ["files/imagecache/63733_pepe-153.gif", 32, 32],
@@ -152,11 +152,11 @@ let urls = [
   ["files/imagecache/63733_happy.newyear.gif", 48, 18],
   ["files/imagecache/63837_0567.gif", 40, 30],
   ["files/imagecache/63837_whiteflag.gif", 54, 40],
-  ["files/imagecache/63837_doppelbatsch.gif", 100, 50],
+  ["files/imagecache/63733_gl%C3%B6%C3%B6ckler-harald.gif", 100, 50],
   ["files/imagecache/63837_hmmm.gif", 25, 23],
   ["files/imagecache/63837_0538.gif", 60, 55],
   ["files/imagecache/63837_furz.gif", 37, 25],
-  ["files/imagecache/63837_e61196ed2593a051ea628db21e0c8d1f.gif", 90, 70],
+  ["files/imagecache/63733_peepo%20pipe.gif", 90, 70],
   ["files/imagecache/63733_merry.gif", 66, 26],
   ["files/imagecache/60835_yovyor4rxqf.gif", 50, 40],
   ["files/imagecache/60835_am7sukwngj.gif", 188, 46],
@@ -175,7 +175,7 @@ let urls = [
   ["files/imagecache/56594_Binoculars.gif", 69, 46],
   ["files/imagecache/60835_mwrel634yyk.gif", 60, 34],
   ["files/imagecache/60835_0eadb9tf3sj.gif", 27, 27],
-  ["files/imagecache/63733_Kaffee-G%C3%A4hn.gif", 104, 64],
+  ["files/imagecache/40950_Verleihnix.gif", 104, 64],
   ["files/imagecache/60835_uriwd79j509.gif", 136, 81],
   ["files/imagecache/60835_j1v404ijrbp.gif", 92, 45],
   ["files/imagecache/60835_m1l1my18m6u.gif", 48, 34],
