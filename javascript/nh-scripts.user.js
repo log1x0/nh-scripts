@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Userscript for NH
 // @namespace    https://openuserjs.org/users/log1x0
-// @version      0.8
+// @version      0.9
 // @description  Userscript for NH
 // @author       log1x0
 // @license      MIT
@@ -646,7 +646,7 @@ function styleClick() {
 
 function setStyle() {
   // choose your background color:
-  let color1 = "#454545";
+  let color1 = "#333C4D";
 
   let color2 = "LightGray";
   let color3 = "#DDCCBB";
