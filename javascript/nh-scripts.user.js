@@ -1,13 +1,14 @@
 // ==UserScript==
 // @name         Userscript for NH
-// @namespace    https://openuserjs.org/users/log1x0
-// @version      0.9
 // @description  Userscript for NH
+// @namespace    https://openuserjs.org/users/log1x0
+// @updateURL    https://openuserjs.org/meta/log1x0/Userscript_for_NH.meta.js
+// @version      1.0
 // @author       log1x0
 // @license      MIT
 // @grant        none
 // @match        https://newheaven.nl/*
-// @icon         https://www.google.com/s2/favicons?sz=64&domain=newheaven.nl
+// @icon         https://newheaven.nl/favicon.ico
 // ==/UserScript==
 
 // ==OpenUserJS==
