@@ -3,8 +3,10 @@
 // @description  Userscript for NH
 // @namespace    https://openuserjs.org/users/log1x0
 // @updateURL    https://openuserjs.org/meta/log1x0/Userscript_for_NH.meta.js
-// @version      1.0
+// @downloadURL  https://openuserjs.org/install/log1x0/Userscript_for_NH.user.js
+// @version      1.0.0
 // @author       log1x0
+// @copyright    2024, log1x0 (https://openuserjs.org/users/log1x0)
 // @license      MIT
 // @grant        none
 // @match        https://newheaven.nl/*
