@@ -2,8 +2,8 @@
 
 Tampermonkey userscript for NH.
 
-### Installation / How-To:
+### Install / Update:
 
-- Install the Tampermonkey extension (e.g. for Firefox).
-- Then see [https://openuserjs.org/scripts/log1x0/Userscript_for_NH](https://openuserjs.org/scripts/log1x0/Userscript_for_NH):
-  - Click either on "Install" and grant the access, or switch to NH page and create a new script manually for it.
+- Install the Tampermonkey extension (e.g. for Chrome, etc.)
+- Then see [https://github.com/log1x0/nh-scripts/blob/master/javascript/nh-scripts.user.js](https://github.com/log1x0/nh-scripts/blob/master/javascript/nh-scripts.user.js) and click on the `Raw` button in the top right corner.
+- The script is recognized, installed, and automatically updated by TM.
