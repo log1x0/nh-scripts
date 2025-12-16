@@ -1,12 +1,13 @@
 // ==UserScript==
 // @name         Userscript for NH
 // @description  Userscript for NH
-// @namespace    https://openuserjs.org/users/log1x0
-// @updateURL    https://openuserjs.org/meta/log1x0/Userscript_for_NH.meta.js
-// @downloadURL  https://openuserjs.org/install/log1x0/Userscript_for_NH.user.js
-// @version      1.0.0
+// @namespace    https://github.com/log1x0/nh-scripts
+// @updateURL    https://github.com/log1x0/nh-scripts/raw/refs/heads/master/javascript/nh-scripts.user.js
+// @downloadURL  https://github.com/log1x0/nh-scripts/raw/refs/heads/master/javascript/nh-scripts.user.js
+// @supportURL   https://github.com/log1x0/nh-scripts/issues
+// @version      1.0.1
 // @author       log1x0
-// @copyright    2024, log1x0 (https://openuserjs.org/users/log1x0)
+// @copyright    2024, log1x0
 // @license      MIT
 // @grant        none
 // @match        https://newheaven.nl/*
