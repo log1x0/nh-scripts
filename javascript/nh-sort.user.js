@@ -1,12 +1,17 @@
 // ==UserScript==
-// @name         NH: Sort by seed
-// @namespace    http://tampermonkey.net/
-// @version      2025-02-16
-// @description  Sort by seed
+// @name         Userscript sort by seed for NH
+// @description  Userscript sort by seed for NH
+// @namespace    https://github.com/log1x0/nh-scripts
+// @updateURL    https://github.com/log1x0/nh-scripts/raw/refs/heads/master/javascript/nh-sort.user.js
+// @downloadURL  https://github.com/log1x0/nh-scripts/raw/refs/heads/master/javascript/nh-sort.user.js
+// @supportURL   https://github.com/log1x0/nh-scripts/issues
+// @version      1.0.0
 // @author       log1x0
-// @match        https://newheaven.nl/index.php
-// @icon         https://www.google.com/s2/favicons?sz=64&domain=newheaven.nl
+// @copyright    2024, log1x0
+// @license      MIT
 // @grant        none
+// @match        https://newheaven.nl/index.php
+// @icon         https://newheaven.nl/favicon.ico
 // ==/UserScript==
 
 (function () {
