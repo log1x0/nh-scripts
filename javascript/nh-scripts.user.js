@@ -5,7 +5,7 @@
 // @updateURL    https://github.com/log1x0/nh-scripts/raw/refs/heads/master/javascript/nh-scripts.user.js
 // @downloadURL  https://github.com/log1x0/nh-scripts/raw/refs/heads/master/javascript/nh-scripts.user.js
 // @supportURL   https://github.com/log1x0/nh-scripts/issues
-// @version      1.0.1
+// @version      1.0.2
 // @author       log1x0
 // @copyright    2024, log1x0
 // @license      MIT
@@ -269,7 +269,9 @@ const scalar = 1.35;
 // Don't adjust this:
 const standardHeight = 550;
 const newHeight = 1100;
-const rowElements = 22;
+const numOfRows = 11;
+const numOfCols = 22;
+const totalElements = numOfRows * numOfCols;
 
 let orgTable = null;
 
@@ -373,18 +375,22 @@ function getHeight(url) {
 }
 
 function initUrls() {
+  while (urls.length > totalElements) {
+    urls.splice(-1);
+  }
+
   for (let i = 0; i < urls.length; i++) {
     let e = urls[i];
     e[0] = "https://newheaven.nl/" + e[0];
   }
 
-  let w = rowElements;
-  let h = Math.ceil(urls.length / w);
-
-  while (urls.length < w * h) {
+  while (urls.length < totalElements) {
     // Placeholder img (transparent):
     urls.push(["data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==", 18, 18]);
   }
+
+  const h = numOfRows;
+  const w = numOfCols;
 
   urls.sort(function (a, b) {
     return getWidth(a) - getWidth(b);
@@ -470,6 +476,7 @@ function addTd(tr, url, title_index, row_index, col_index) {
   let img = document.createElement("img");
   td.style.textAlign = "center";
   td.style.verticalAlign = "middle";
+  td.style.border = "1px dotted black";
   img.src = url[0];
   img.width = getWidth(url);
   img.height = getHeight(url);
@@ -506,17 +513,21 @@ function addSwitch(mode) {
 }
 
 function resizeTds(rows) {
-  let max = 30;
+  const max_w = 30;
   for (let i = 0; i < rows.length; i++) {
     let r = rows[i];
-    while (r.cells.length < max) {
+    while (r.cells.length < max_w) {
       r.insertCell(-1);
     }
-    r.cells[rowElements - 5].colSpan = 2;
-    r.cells[rowElements - 4].colSpan = 2;
-    r.cells[rowElements - 3].colSpan = 2;
-    r.cells[rowElements - 2].colSpan = 3;
-    r.cells[rowElements - 1].colSpan = 5;
+//    for (let j = numOfCols - (max_w - numOfCols) + 2; j < numOfCols - 1; j++) {
+//      r.cells[j].colSpan = 2;
+//    }
+//    r.cells[numOfCols - 6].colSpan = 2;
+    r.cells[numOfCols - 5].colSpan = 2;
+    r.cells[numOfCols - 4].colSpan = 2;
+    r.cells[numOfCols - 3].colSpan = 2;
+    r.cells[numOfCols - 2].colSpan = 2;
+    r.cells[numOfCols - 1].colSpan = 5;
   }
 }
 
