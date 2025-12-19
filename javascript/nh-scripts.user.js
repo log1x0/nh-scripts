@@ -5,7 +5,7 @@
 // @updateURL    https://github.com/log1x0/nh-scripts/raw/refs/heads/master/javascript/nh-scripts.user.js
 // @downloadURL  https://github.com/log1x0/nh-scripts/raw/refs/heads/master/javascript/nh-scripts.user.js
 // @supportURL   https://github.com/log1x0/nh-scripts/issues
-// @version      1.0.2
+// @version      1.0.3
 // @author       log1x0
 // @copyright    2024, log1x0
 // @license      MIT
@@ -23,7 +23,7 @@ let urls = [
   ["files/imagecache/63733_pepe-095.gif", 28, 28],
   ["files/imagecache/63726_pepe-002.png", 28, 28],
   ["files/imagecache/63726_pepe-003.gif", 28, 28],
-  ["files/imagecache/63726_pepe-004.gif", 28, 28],
+  ["files/imagecache/63733_kermitpiggy.gif", 28, 28],
   ["files/imagecache/63733_pepe-096.gif", 35, 34],
   ["files/imagecache/63726_pepe-005.png", 25, 25],
   ["files/imagecache/63733_pepe-119.gif", 32, 32],
@@ -89,7 +89,7 @@ let urls = [
   ["files/imagecache/63733_pepe-074.gif", 40, 25],
   ["files/imagecache/63733_peepo-trip-lsd.gif", 18, 18],
   ["files/imagecache/63733_pepe-076.gif", 41, 40],
-  ["files/imagecache/63733_pepe-077.gif", 26, 18],
+  ["files/imagecache/56594_uhumge.gif", 41, 40],
   ["files/imagecache/63733_pepe-078.gif", 36, 29],
   ["files/imagecache/63733_Groehl.gif", 42, 32],
   ["files/imagecache/63733_pepe-094.gif", 36, 26],
@@ -180,7 +180,7 @@ let urls = [
   ["files/imagecache/60835_mwrel634yyk.gif", 60, 34],
   ["files/imagecache/60835_0eadb9tf3sj.gif", 27, 27],
   ["files/imagecache/40950_Verleihnix.gif", 104, 64],
-  ["files/imagecache/60835_uriwd79j509.gif", 136, 81],
+  ["files/imagecache/63733_biber2.gif", 136, 81],
   ["files/imagecache/60835_j1v404ijrbp.gif", 92, 45],
   ["files/imagecache/60835_m1l1my18m6u.gif", 48, 34],
   ["files/imagecache/60835_zntmbpn9kcd.gif", 118, 75],
