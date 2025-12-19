@@ -519,10 +519,10 @@ function resizeTds(rows) {
     while (r.cells.length < max_w) {
       r.insertCell(-1);
     }
-//    for (let j = numOfCols - (max_w - numOfCols) + 2; j < numOfCols - 1; j++) {
-//      r.cells[j].colSpan = 2;
-//    }
-//    r.cells[numOfCols - 6].colSpan = 2;
+    //    for (let j = numOfCols - (max_w - numOfCols) + 2; j < numOfCols - 1; j++) {
+    //      r.cells[j].colSpan = 2;
+    //    }
+    //    r.cells[numOfCols - 6].colSpan = 2;
     r.cells[numOfCols - 5].colSpan = 2;
     r.cells[numOfCols - 4].colSpan = 2;
     r.cells[numOfCols - 3].colSpan = 2;
