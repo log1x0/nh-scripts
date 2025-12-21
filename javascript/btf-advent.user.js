@@ -18,8 +18,8 @@
   let img = null;
   let tileData = new Array();
   let oldData = new Array();
-  if (localStorage.getItem('tileData')) {
-      oldData = localStorage.getItem('tileData');
+  if (localStorage.getItem("tileData")) {
+    oldData = localStorage.getItem("tileData");
   }
   let imgs = document.getElementsByTagName("img");
   for (let a of imgs) {
@@ -34,7 +34,7 @@
     b.removeAttribute("tabindex");
     let c = b.getAttribute("coords").split(",");
     if (oldData.length == 0 || oldData.includes(c)) {
-        tileData.push(c);
+      tileData.push(c);
     }
   }
   let canvas = document.createElement("canvas");
@@ -55,5 +55,5 @@
   }
   img.parentElement.appendChild(document.createElement("p"));
   img.parentElement.appendChild(canvas);
-  localStorage.setItem('tileData', tileData);
+  localStorage.setItem("tileData", tileData);
 })();
