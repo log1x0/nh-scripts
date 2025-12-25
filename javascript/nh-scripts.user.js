@@ -5,7 +5,7 @@
 // @updateURL    https://github.com/log1x0/nh-scripts/raw/refs/heads/master/javascript/nh-scripts.user.js
 // @downloadURL  https://github.com/log1x0/nh-scripts/raw/refs/heads/master/javascript/nh-scripts.user.js
 // @supportURL   https://github.com/log1x0/nh-scripts/issues
-// @version      1.0.3
+// @version      1.0.4
 // @author       log1x0
 // @copyright    2024, log1x0
 // @license      MIT
