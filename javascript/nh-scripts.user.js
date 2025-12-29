@@ -5,7 +5,7 @@
 // @updateURL    https://github.com/log1x0/nh-scripts/raw/refs/heads/master/javascript/nh-scripts.user.js
 // @downloadURL  https://github.com/log1x0/nh-scripts/raw/refs/heads/master/javascript/nh-scripts.user.js
 // @supportURL   https://github.com/log1x0/nh-scripts/issues
-// @version      1.0.4
+// @version      1.0.5
 // @author       log1x0
 // @copyright    2024, log1x0
 // @license      MIT
@@ -23,7 +23,7 @@ let urls = [
   ["files/imagecache/63733_pepe-095.gif", 28, 28],
   ["files/imagecache/63726_pepe-002.png", 28, 28],
   ["files/imagecache/63726_pepe-003.gif", 28, 28],
-  ["files/imagecache/63733_kermitpiggy.gif", 28, 28],
+  ["files/imagecache/63726_pepe_fog.png", 100, 100],
   ["files/imagecache/63733_pepe-096.gif", 35, 34],
   ["files/imagecache/63726_pepe-005.png", 25, 25],
   ["files/imagecache/63733_pepe-119.gif", 32, 32],
