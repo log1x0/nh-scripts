@@ -5,7 +5,7 @@
 // @updateURL    https://github.com/log1x0/nh-scripts/raw/refs/heads/master/javascript/nh-scripts.user.js
 // @downloadURL  https://github.com/log1x0/nh-scripts/raw/refs/heads/master/javascript/nh-scripts.user.js
 // @supportURL   https://github.com/log1x0/nh-scripts/issues
-// @version      1.0.7
+// @version      1.0.8
 // @author       log1x0
 // @license      MIT
 // @grant        none
@@ -539,11 +539,11 @@ function addPepeSearch() {
   let div = getNthParent(comic, 1);
   if (div) {
     let input = document.createElement("input");
-    input.style.width = "8em";
+    input.style.width = "6em";
     input.id = "pepe-search";
     input.name = "pepe-search";
     input.type = "text";
-    input.placeholder = "Search Pepe...";
+    input.placeholder = "Search Pepe";
     input.addEventListener("input", pepeSearchOnChange, false);
     div.appendChild(input);
   }
@@ -593,7 +593,7 @@ function addExcludeButton() {
       input.id = "exclude-button";
       input.name = "exclude-button";
       input.type = "button";
-      input.value = "Exclude";
+      input.value = "Excl.";
       input.onclick = function () {
         let excludeRegex = prompt("Exclude contains regex (case insensitive):", localStorage.excludeRegex || "mst$");
         if (excludeRegex) {
@@ -702,7 +702,7 @@ function splitShoutBox() {
       input.id = "split-button";
       input.name = "split-button";
       input.type = "button";
-      input.value = "Split SB";
+      input.value = "Split";
       input.onclick = function () {
         if (localStorage.splitSB == "1") {
           localStorage.splitSB = "0";
