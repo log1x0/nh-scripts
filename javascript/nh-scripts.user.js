@@ -5,18 +5,13 @@
 // @updateURL    https://github.com/log1x0/nh-scripts/raw/refs/heads/master/javascript/nh-scripts.user.js
 // @downloadURL  https://github.com/log1x0/nh-scripts/raw/refs/heads/master/javascript/nh-scripts.user.js
 // @supportURL   https://github.com/log1x0/nh-scripts/issues
-// @version      1.0.6
+// @version      1.0.7
 // @author       log1x0
-// @copyright    2024, log1x0
 // @license      MIT
 // @grant        none
 // @match        https://newheaven.nl/*
 // @icon         https://newheaven.nl/favicon.ico
 // ==/UserScript==
-
-// ==OpenUserJS==
-// @author log1x0
-// ==/OpenUserJS==
 
 let urls = [
   ["files/imagecache/63726_pepe-001.gif", 28, 28],
@@ -277,18 +272,26 @@ let orgTable = null;
 
 (function () {
   "use strict";
-  if (getFirstSmiley()) {
+  addSwitchStyle();
+  add_4k();
+  if (isInsideIframe()) {
+    console.log("inside iframe ...");
     swapInput();
     removeHints();
     addPepe();
     addPepeSearch();
     addExcludeButton();
+    checkExcludeRegex();
+      splitShoutBox();
   }
-  add_4k();
-  addSwitchStyle();
-  checkExcludeRegex();
-  splitShoutBox();
 })();
+
+function isInsideIframe() {
+    if (window.top === window.self) {
+        return false;
+    }
+    return true;
+}
 
 function swapInput() {
   let msg = document.querySelector("#message");
@@ -413,7 +416,7 @@ function initUrls() {
 }
 
 function getFirstSmiley() {
-  return document.querySelector('[title=":)"]');
+    return document.querySelector('[title=":)"]');
 }
 
 function showPepe() {
@@ -582,6 +585,7 @@ function add_4k() {
 
 function addExcludeButton() {
   let comic = document.querySelector('input[value="Comic"]');
+  if (comic) {
   let div = getNthParent(comic, 1);
   if (div) {
     let input = document.createElement("input");
@@ -600,6 +604,7 @@ function addExcludeButton() {
     };
     div.appendChild(document.createTextNode(" "));
     div.appendChild(input);
+  }
   }
 }
 
@@ -689,8 +694,8 @@ function setStyle() {
 
 function splitShoutBox() {
   if (!document.querySelector('input[name="split-button"]')) {
-    let eb = document.querySelector('input[name="exclude-button"]');
-    let div = getNthParent(eb, 1);
+    let comic = document.querySelector('input[value="Comic"]');
+    let div = getNthParent(comic, 1);
     if (div) {
       let input = document.createElement("input");
       input.className = "submitbutton";
@@ -713,8 +718,9 @@ function splitShoutBox() {
 
   if (localStorage.splitSB == "1") {
     let tblParent = document.querySelector("html > body > table:nth-of-type(2)");
+    if (tblParent) {
     let tbl1 = document.querySelector("html > body > table:nth-of-type(2) > tbody");
-    if (tblParent && tbl1) {
+    if (tbl1) {
       let tbl2 = tbl1.cloneNode(true);
       tblParent.appendChild(document.createElement("hr"));
       tblParent.appendChild(tbl2);
@@ -726,6 +732,7 @@ function splitShoutBox() {
           tbl2.deleteRow(i);
         }
       }
+    }
     }
   }
 }
