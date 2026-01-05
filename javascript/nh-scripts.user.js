@@ -282,15 +282,15 @@ let orgTable = null;
     addPepeSearch();
     addExcludeButton();
     checkExcludeRegex();
-      splitShoutBox();
+    splitShoutBox();
   }
 })();
 
 function isInsideIframe() {
-    if (window.top === window.self) {
-        return false;
-    }
-    return true;
+  if (window.top === window.self) {
+    return false;
+  }
+  return true;
 }
 
 function swapInput() {
@@ -416,7 +416,7 @@ function initUrls() {
 }
 
 function getFirstSmiley() {
-    return document.querySelector('[title=":)"]');
+  return document.querySelector('[title=":)"]');
 }
 
 function showPepe() {
@@ -586,25 +586,25 @@ function add_4k() {
 function addExcludeButton() {
   let comic = document.querySelector('input[value="Comic"]');
   if (comic) {
-  let div = getNthParent(comic, 1);
-  if (div) {
-    let input = document.createElement("input");
-    input.className = "submitbutton";
-    input.id = "exclude-button";
-    input.name = "exclude-button";
-    input.type = "button";
-    input.value = "Exclude";
-    input.onclick = function () {
-      let excludeRegex = prompt("Exclude contains regex (case insensitive):", localStorage.excludeRegex || "mst$");
-      if (excludeRegex) {
-        localStorage.excludeRegex = excludeRegex;
-      } else {
-        localStorage.excludeRegex = "";
-      }
-    };
-    div.appendChild(document.createTextNode(" "));
-    div.appendChild(input);
-  }
+    let div = getNthParent(comic, 1);
+    if (div) {
+      let input = document.createElement("input");
+      input.className = "submitbutton";
+      input.id = "exclude-button";
+      input.name = "exclude-button";
+      input.type = "button";
+      input.value = "Exclude";
+      input.onclick = function () {
+        let excludeRegex = prompt("Exclude contains regex (case insensitive):", localStorage.excludeRegex || "mst$");
+        if (excludeRegex) {
+          localStorage.excludeRegex = excludeRegex;
+        } else {
+          localStorage.excludeRegex = "";
+        }
+      };
+      div.appendChild(document.createTextNode(" "));
+      div.appendChild(input);
+    }
   }
 }
 
@@ -719,20 +719,20 @@ function splitShoutBox() {
   if (localStorage.splitSB == "1") {
     let tblParent = document.querySelector("html > body > table:nth-of-type(2)");
     if (tblParent) {
-    let tbl1 = document.querySelector("html > body > table:nth-of-type(2) > tbody");
-    if (tbl1) {
-      let tbl2 = tbl1.cloneNode(true);
-      tblParent.appendChild(document.createElement("hr"));
-      tblParent.appendChild(tbl2);
-      for (let i = tbl1.rows.length - 1; i >= 0; i--) {
-        let element = tbl1.rows[i].innerText.trim();
-        if (element.includes("ChickPea:")) {
-          tbl1.deleteRow(i);
-        } else {
-          tbl2.deleteRow(i);
+      let tbl1 = document.querySelector("html > body > table:nth-of-type(2) > tbody");
+      if (tbl1) {
+        let tbl2 = tbl1.cloneNode(true);
+        tblParent.appendChild(document.createElement("hr"));
+        tblParent.appendChild(tbl2);
+        for (let i = tbl1.rows.length - 1; i >= 0; i--) {
+          let element = tbl1.rows[i].innerText.trim();
+          if (element.includes("ChickPea:")) {
+            tbl1.deleteRow(i);
+          } else {
+            tbl2.deleteRow(i);
+          }
         }
       }
-    }
     }
   }
 }
