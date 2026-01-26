@@ -5,7 +5,7 @@
 // @updateURL    https://github.com/log1x0/nh-scripts/raw/refs/heads/master/javascript/nh-scripts.user.js
 // @downloadURL  https://github.com/log1x0/nh-scripts/raw/refs/heads/master/javascript/nh-scripts.user.js
 // @supportURL   https://github.com/log1x0/nh-scripts/issues
-// @version      1.0.9
+// @version      1.0.10
 // @author       log1x0
 // @license      MIT
 // @grant        none
@@ -146,7 +146,7 @@ let urls = [
   ["files/imagecache/63837_user%20delete.gif", 80, 80],
   ["files/imagecache/63837_97c4247b2d741ff6c721f26cda5a48ef.gif", 69, 46],
   ["files/imagecache/63837_rarschleppen.gif", 24, 42],
-  ["files/imagecache/63837_2d2a5515902de4c05b1cx42.gif", 27, 24],
+  ["files/imagecache/29907_3Affen.gif", 66, 26],
   ["files/imagecache/63837_rip.gif", 43, 34],
   ["files/imagecache/63733_happy.newyear.gif", 48, 18],
   ["files/imagecache/63837_0567.gif", 40, 30],
