@@ -5,7 +5,7 @@
 // @updateURL    https://github.com/log1x0/nh-scripts/raw/refs/heads/master/javascript/nh-scripts.user.js
 // @downloadURL  https://github.com/log1x0/nh-scripts/raw/refs/heads/master/javascript/nh-scripts.user.js
 // @supportURL   https://github.com/log1x0/nh-scripts/issues
-// @version      1.0.8
+// @version      1.0.9
 // @author       log1x0
 // @license      MIT
 // @grant        none
@@ -102,7 +102,7 @@ let urls = [
   ["files/imagecache/63733_pepe-132.gif", 32, 32],
   ["files/imagecache/63733_peeporain-rain.gif", 32, 32],
   ["files/imagecache/63733_pepe-134.gif", 32, 32],
-  ["files/imagecache/63733_pepe-135.gif", 32, 32],
+  ["files/imagecache/56594_stab.gif", 32, 32],
   ["files/imagecache/63733_pepe-136.gif", 32, 32],
   ["files/imagecache/63733_pepe-137.gif", 41, 36],
   ["files/imagecache/63733_pepe-117.gif", 32, 32],
@@ -263,7 +263,7 @@ const scalar = 1.35;
 
 // Don't adjust this:
 const standardHeight = 550;
-const newHeight = 1100;
+const newHeight = 1075;
 const numOfRows = 11;
 const numOfCols = 22;
 const totalElements = numOfRows * numOfCols;
