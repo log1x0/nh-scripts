@@ -56,26 +56,29 @@ Diese Erweiterung ist vollständig MV3-konform:
 
 ## Unterschiede zum Original-UserScript
 
-| Feature | UserScript | MV3-Erweiterung |
-|---------|-----------|-----------------|
-| Installation | @match in Tampermonkey | manifest.json |
-| Speicher | localStorage | chrome.storage.local |
-| Berechtigungen | @grant none | "storage" permission |
-| Hintergrund | Keiner | Service Worker |
-| Async Ops | Synchron | Promise-basiert |
+| Feature        | UserScript             | MV3-Erweiterung      |
+| -------------- | ---------------------- | -------------------- |
+| Installation   | @match in Tampermonkey | manifest.json        |
+| Speicher       | localStorage           | chrome.storage.local |
+| Berechtigungen | @grant none            | "storage" permission |
+| Hintergrund    | Keiner                 | Service Worker       |
+| Async Ops      | Synchron               | Promise-basiert      |
 
 ## Troubleshooting
 
 **"Erweiterung konnte nicht geladen werden"**
+
 - Stelle sicher, dass alle Dateien vorhanden sind
 - Überprüfe die Browser-Konsole auf Fehler
 - Lade die Erweiterung neu
 
 **Settings werden nicht gespeichert**
+
 - Überprüfe die Storage-Berechtigung
 - Lösche Cache/Cookies und versuche es erneut
 
 **Emojis erscheinen nicht**
+
 - Stelle sicher, dass du auf https://newheaven.nl/* bist
 - Überprüfe, dass du in einem Iframe (Shoutbox) bist
 - Lade die Seite neu

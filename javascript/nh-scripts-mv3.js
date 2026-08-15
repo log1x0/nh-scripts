@@ -608,7 +608,7 @@ function addExcludeButton() {
       input.type = "button";
       input.value = "Excl.";
       input.onclick = async function () {
-        let excludeRegex = prompt("Exclude contains regex (case insensitive):", await StorageHelper.get("excludeRegex") || "mst$");
+        let excludeRegex = prompt("Exclude contains regex (case insensitive):", (await StorageHelper.get("excludeRegex")) || "mst$");
         if (excludeRegex) {
           await StorageHelper.set("excludeRegex", excludeRegex);
         } else {
@@ -651,7 +651,7 @@ async function addSwitchStyle() {
     let opt = document.createElement("option");
     opt.value = 9;
     opt.innerHTML = "Custom by Logi";
-    
+
     select.onchange = async function () {
       let currentShouldStyleSet = await StorageHelper.get("shouldStyleSet");
       if (currentShouldStyleSet && select.value == 9) {
@@ -666,7 +666,7 @@ async function addSwitchStyle() {
         document.detailbox.submit();
       }
     };
-    
+
     select.appendChild(opt);
     let currentShouldStyleSet = await StorageHelper.get("shouldStyleSet");
     if (currentShouldStyleSet == 1) {

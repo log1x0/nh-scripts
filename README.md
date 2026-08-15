@@ -3,6 +3,7 @@
 Scripts for the NH shoutbox with Pepe emoji integration and customization features.
 
 Available in two versions:
+
 - **Tampermonkey UserScript** (recommended for cross-browser support)
 - **Chrome MV3 Extension** (native Chrome extension, future-proof)
 
@@ -53,15 +54,15 @@ Available in two versions:
 
 ## Version Comparison
 
-| Feature | UserScript | MV3 Extension |
-|---------|-----------|--------------|
+| Feature             | UserScript                          | MV3 Extension               |
+| ------------------- | ----------------------------------- | --------------------------- |
 | **Browser Support** | Chrome, Firefox, Safari, Edge, etc. | Chrome, Edge, Chromium only |
-| **Installation** | One-click from GitHub | Manual unpacking |
-| **Auto-updates** | ✅ Automatic via Tampermonkey | ❌ Manual check required |
-| **Performance** | Good | Excellent (native) |
-| **Storage** | localStorage | chrome.storage.local |
-| **Dependencies** | Tampermonkey | None |
-| **Maintenance** | Long-term support | Future-proof (MV3 standard) |
+| **Installation**    | One-click from GitHub               | Manual unpacking            |
+| **Auto-updates**    | ✅ Automatic via Tampermonkey       | ❌ Manual check required    |
+| **Performance**     | Good                                | Excellent (native)          |
+| **Storage**         | localStorage                        | chrome.storage.local        |
+| **Dependencies**    | Tampermonkey                        | None                        |
+| **Maintenance**     | Long-term support                   | Future-proof (MV3 standard) |
 
 ---
 
