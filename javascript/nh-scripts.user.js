@@ -485,11 +485,11 @@ function addTd(tr, url, title_index, row_index, col_index) {
   img.height = getHeight(url);
 
   // Sicherer Event-Listener statt String-Injektion:
-  img.addEventListener("click", function() {
+  img.addEventListener("click", function () {
     if (typeof setTag === "function") {
       setTag("[IMG]" + url[0] + "[/IMG]");
     }
-});
+  });
 
   img.title = title;
   img.classList.add("pepe-emoji");
@@ -621,7 +621,7 @@ function checkExcludeRegex() {
     let re = new RegExp(excludeRegex, "i");
     let body = document.querySelector("html > body > table:nth-of-type(2) > tbody");
     if (body) {
-      for (let i = 0; i < body.rows.length; ) {
+      for (let i = 0; i < body.rows.length;) {
         let element = body.rows[i].innerText.trim();
         if (re.test(element)) {
           body.deleteRow(i);
