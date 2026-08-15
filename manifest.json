@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "NH Scripts",
+  "version": "1.0.11",
+  "description": "Userscript for NH - Enhanced UI with Pepe emojis and customization",
+  "author": "log1x0",
+  "permissions": [
+    "storage",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://newheaven.nl/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://newheaven.nl/*"],
+      "js": ["javascript/nh-scripts-mv3.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "icons": {
+    "128": "images/icon-128.png"
+  }
+}

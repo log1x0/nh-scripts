@@ -1,16 +1,10 @@
 // ==UserScript==
-// @name         Userscript for NH
-// @description  Userscript for NH
+// @name         NH Scripts MV3
+// @description  Userscript for NH - Enhanced UI with Pepe emojis
 // @namespace    https://github.com/log1x0/nh-scripts
-// @updateURL    https://github.com/log1x0/nh-scripts/raw/refs/heads/master/javascript/nh-scripts.user.js
-// @downloadURL  https://github.com/log1x0/nh-scripts/raw/refs/heads/master/javascript/nh-scripts.user.js
-// @supportURL   https://github.com/log1x0/nh-scripts/issues
 // @version      1.0.11
 // @author       log1x0
 // @license      MIT
-// @grant        none
-// @match        https://newheaven.nl/*
-// @icon         https://newheaven.nl/favicon.ico
 // ==/UserScript==
 
 let urls = [
@@ -270,10 +264,27 @@ const totalElements = numOfRows * numOfCols;
 
 let orgTable = null;
 
-(function () {
+// Storage helper functions for MV3 compatibility
+const StorageHelper = {
+  get: async (key) => {
+    return new Promise((resolve) => {
+      chrome.storage.local.get([key], (result) => {
+        resolve(result[key] || null);
+      });
+    });
+  },
+  set: async (key, value) => {
+    return new Promise((resolve) => {
+      chrome.storage.local.set({ [key]: value }, resolve);
+    });
+  }
+};
+
+// Initialize
+(async function () {
   "use strict";
   addSwitchStyle();
-  add_4k();
+  add4k();
   if (isInsideIframe()) {
     console.log("inside iframe ...");
     swapInput();
@@ -281,7 +292,7 @@ let orgTable = null;
     addPepe();
     addPepeSearch();
     addExcludeButton();
-    checkExcludeRegex();
+    await checkExcludeRegex();
     splitShoutBox();
   }
 })();
@@ -484,7 +495,6 @@ function addTd(tr, url, title_index, row_index, col_index) {
   img.width = getWidth(url);
   img.height = getHeight(url);
 
-  // Sicherer Event-Listener statt String-Injektion:
   img.addEventListener("click", function () {
     if (typeof setTag === "function") {
       setTag("[IMG]" + url[0] + "[/IMG]");
@@ -529,10 +539,6 @@ function resizeTds(rows) {
     while (r.cells.length < max_w) {
       r.insertCell(-1);
     }
-    //    for (let j = numOfCols - (max_w - numOfCols) + 2; j < numOfCols - 1; j++) {
-    //      r.cells[j].colSpan = 2;
-    //    }
-    //    r.cells[numOfCols - 6].colSpan = 2;
     r.cells[numOfCols - 5].colSpan = 2;
     r.cells[numOfCols - 4].colSpan = 2;
     r.cells[numOfCols - 3].colSpan = 2;
@@ -579,7 +585,7 @@ function pepeSearchOnChange() {
   }
 }
 
-function add_4k() {
+function add4k() {
   document.querySelectorAll("img").forEach((e) => {
     if (e.src == "https://newheaven.nl/images/categories/9/2_109.gif") {
       e.src = "https://newheaven.nl/files/imagecache/63726_29907_2160p.png";
@@ -601,12 +607,12 @@ function addExcludeButton() {
       input.name = "exclude-button";
       input.type = "button";
       input.value = "Excl.";
-      input.onclick = function () {
-        let excludeRegex = prompt("Exclude contains regex (case insensitive):", localStorage.excludeRegex || "mst$");
+      input.onclick = async function () {
+        let excludeRegex = prompt("Exclude contains regex (case insensitive):", await StorageHelper.get("excludeRegex") || "mst$");
         if (excludeRegex) {
-          localStorage.excludeRegex = excludeRegex;
+          await StorageHelper.set("excludeRegex", excludeRegex);
         } else {
-          localStorage.excludeRegex = "";
+          await StorageHelper.set("excludeRegex", "");
         }
       };
       div.appendChild(document.createTextNode(" "));
@@ -615,8 +621,8 @@ function addExcludeButton() {
   }
 }
 
-function checkExcludeRegex() {
-  let excludeRegex = localStorage.excludeRegex;
+async function checkExcludeRegex() {
+  let excludeRegex = await StorageHelper.get("excludeRegex");
   if (excludeRegex && excludeRegex != "") {
     let re = new RegExp(excludeRegex, "i");
     let body = document.querySelector("html > body > table:nth-of-type(2) > tbody");
@@ -633,10 +639,11 @@ function checkExcludeRegex() {
   }
 }
 
-function addSwitchStyle() {
-  if (!localStorage.shouldStyleSet) {
+async function addSwitchStyle() {
+  let shouldStyleSet = await StorageHelper.get("shouldStyleSet");
+  if (shouldStyleSet === null) {
     // init:
-    localStorage.shouldStyleSet = 0;
+    await StorageHelper.set("shouldStyleSet", 0);
   }
 
   let select = document.querySelector('select[name="theme"]');
@@ -644,30 +651,32 @@ function addSwitchStyle() {
     let opt = document.createElement("option");
     opt.value = 9;
     opt.innerHTML = "Custom by Logi";
-    select.onchange = styleClick;
+    
+    select.onchange = async function () {
+      let currentShouldStyleSet = await StorageHelper.get("shouldStyleSet");
+      if (currentShouldStyleSet && select.value == 9) {
+        await StorageHelper.set("shouldStyleSet", 0);
+        select.value = 1;
+        document.detailbox.submit();
+        await StorageHelper.set("shouldStyleSet", 1);
+        select.value = 9;
+        setStyle();
+      } else {
+        await StorageHelper.set("shouldStyleSet", 0);
+        document.detailbox.submit();
+      }
+    };
+    
     select.appendChild(opt);
-    if (localStorage.shouldStyleSet == 1) {
+    let currentShouldStyleSet = await StorageHelper.get("shouldStyleSet");
+    if (currentShouldStyleSet == 1) {
       select.value = 9;
     }
   }
 
-  if (localStorage.shouldStyleSet == 1) {
+  let currentShouldStyleSet = await StorageHelper.get("shouldStyleSet");
+  if (currentShouldStyleSet == 1) {
     setStyle();
-  }
-}
-
-function styleClick() {
-  let select = document.querySelector('select[name="theme"]');
-  if (localStorage.shouldStyleSet && select && select.value == 9) {
-    localStorage.shouldStyleSet = 0;
-    select.value = 1;
-    document.detailbox.submit();
-    localStorage.shouldStyleSet = 1;
-    select.value = 9;
-    setStyle();
-  } else {
-    localStorage.shouldStyleSet = 0;
-    document.detailbox.submit();
   }
 }
 
@@ -694,12 +703,9 @@ function setStyle() {
   document.querySelectorAll(".framecorner, .framebar").forEach(function (e) {
     e.style.backgroundImage = "none";
   });
-
-  // uncomment this, if the font size should be increased:
-  //document.querySelectorAll("font, td").forEach(function (e) { e.style.fontSize = "9pt"; });
 }
 
-function splitShoutBox() {
+async function splitShoutBox() {
   if (!document.querySelector('input[name="split-button"]')) {
     let comic = document.querySelector('input[value="Comic"]');
     let div = getNthParent(comic, 1);
@@ -710,11 +716,12 @@ function splitShoutBox() {
       input.name = "split-button";
       input.type = "button";
       input.value = "Split";
-      input.onclick = function () {
-        if (localStorage.splitSB == "1") {
-          localStorage.splitSB = "0";
+      input.onclick = async function () {
+        let splitSB = await StorageHelper.get("splitSB");
+        if (splitSB == "1") {
+          await StorageHelper.set("splitSB", "0");
         } else {
-          localStorage.splitSB = "1";
+          await StorageHelper.set("splitSB", "1");
         }
         window.location.reload();
       };
@@ -723,7 +730,8 @@ function splitShoutBox() {
     }
   }
 
-  if (localStorage.splitSB == "1") {
+  let splitSB = await StorageHelper.get("splitSB");
+  if (splitSB == "1") {
     let tblParent = document.querySelector("html > body > table:nth-of-type(2)");
     if (tblParent) {
       let tbl1 = document.querySelector("html > body > table:nth-of-type(2) > tbody");
