@@ -483,7 +483,14 @@ function addTd(tr, url, title_index, row_index, col_index) {
   img.src = url[0];
   img.width = getWidth(url);
   img.height = getHeight(url);
-  img.setAttribute("onclick", "setTag('[IMG]" + url[0] + "[/IMG]');");
+
+  // Sicherer Event-Listener statt String-Injektion:
+  img.addEventListener("click", function() {
+    if (typeof setTag === "function") {
+      setTag("[IMG]" + url[0] + "[/IMG]");
+    }
+});
+
   img.title = title;
   img.classList.add("pepe-emoji");
   td.appendChild(img);
@@ -709,7 +716,7 @@ function splitShoutBox() {
         } else {
           localStorage.splitSB = "1";
         }
-        window.location.reload(true);
+        window.location.reload();
       };
       div.appendChild(document.createTextNode(" "));
       div.appendChild(input);
