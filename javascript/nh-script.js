@@ -271,69 +271,69 @@ const totalElements = numOfRows * numOfCols;
 let orgTable = null;
 
 function initExtension() {
-    const currentUrl = window.location.href;
+  const currentUrl = window.location.href;
 
-    // -------------------------------------------------------------
-    // FALL 1: Code für die HAUPTSEITE (Ganz oben)
-    // -------------------------------------------------------------
-    if (window.self === window.top) {
-        console.log("🏠 [Hauptseite] Code läuft auf der obersten Ebene!");
-        executeOnMainPage();
-    }
-    
-    // -------------------------------------------------------------
-    // FALL 2: Code für das ÄUẞERE iFrame
-    // -------------------------------------------------------------
-    else if (currentUrl.includes("strWebAction=shoutbox_home") && currentUrl.includes("display=frame")) {
-        console.log("📦 [Äußeres iFrame] Code läuft im mittleren Frame!");
-        executeInOuterIframe();
-    }
+  // -------------------------------------------------------------
+  // FALL 1: Code für die HAUPTSEITE (Ganz oben)
+  // -------------------------------------------------------------
+  if (window.self === window.top) {
+    console.log("🏠 [Hauptseite] Code läuft auf der obersten Ebene!");
+    executeOnMainPage();
+  }
 
-    // -------------------------------------------------------------
-    // FALL 3: Code für das INNERE iFrame (die eigentliche Shoutbox)
-    // -------------------------------------------------------------
-    else if (currentUrl.includes("strWebAction=shoutbox_home") && !currentUrl.includes("display=frame")) {
-        console.log("🎯 [Inneres iFrame] Code läuft im innersten Frame!");
-        executeInInnerIframe();
-    }
+  // -------------------------------------------------------------
+  // FALL 2: Code für das ÄUẞERE iFrame
+  // -------------------------------------------------------------
+  else if (currentUrl.includes("strWebAction=shoutbox_home") && currentUrl.includes("display=frame")) {
+    console.log("📦 [Äußeres iFrame] Code läuft im mittleren Frame!");
+    executeInOuterIframe();
+  }
+
+  // -------------------------------------------------------------
+  // FALL 3: Code für das INNERE iFrame (die eigentliche Shoutbox)
+  // -------------------------------------------------------------
+  else if (currentUrl.includes("strWebAction=shoutbox_home") && !currentUrl.includes("display=frame")) {
+    console.log("🎯 [Inneres iFrame] Code läuft im innersten Frame!");
+    executeInInnerIframe();
+  }
 }
 
 // === 1. HAUPTSEITE ===
 function executeOnMainPage() {
-    // Läuft nur einmal beim Laden der gesamten Website
-    // Wird durch die 30-Sekunden-Reloads der iFrames NICHT beeinflusst
-    addSwitchStyle();
-    setStyle();
-    add_4k();
+  // Läuft nur einmal beim Laden der gesamten Website
+  // Wird durch die 30-Sekunden-Reloads der iFrames NICHT beeinflusst
+  addSwitchStyle();
+  setStyle();
+  add_4k();
 }
 
 // === 2. ÄUẞERES IFRAME ===
 function executeInOuterIframe() {
-    // Läuft, sobald das äußere iFrame geladen ist
-    // Falls sich dieses iFrame NICHT alle 30 Sekunden neu lädt, läuft der Code hier nur einmal
-    setStyle();
-    swapInput();
-    removeHints();
-    addPepe();
-    addPepeSearch();
-    addExcludeButton();
-    splitShoutBox();
+  // Läuft, sobald das äußere iFrame geladen ist
+  // Falls sich dieses iFrame NICHT alle 30 Sekunden neu lädt, läuft der Code hier nur einmal
+  setStyle();
+  swapInput();
+  removeHints();
+  addPepe();
+  addPepeSearch();
+  addExcludeButton();
+  splitShoutBox();
 }
 
 // === 3. INNERES IFRAME ===
 function executeInInnerIframe() {
-    // WICHTIG: Dieser Code läuft beim ersten Laden UND alle 30 Sekunden beim Reload neu!
-    // Perfekt, um hier die Shoutbox-Einträge frisch auszulesen
-    setStyle();
-    checkExcludeRegex();
-    splitShoutBox();
+  // WICHTIG: Dieser Code läuft beim ersten Laden UND alle 30 Sekunden beim Reload neu!
+  // Perfekt, um hier die Shoutbox-Einträge frisch auszulesen
+  setStyle();
+  checkExcludeRegex();
+  splitShoutBox();
 }
 
 // Skript-Start für das jeweilige Fenster/iFrame
 if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initExtension);
+  document.addEventListener("DOMContentLoaded", initExtension);
 } else {
-    initExtension();
+  initExtension();
 }
 
 function swapInput() {
