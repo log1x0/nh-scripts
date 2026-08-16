@@ -2,10 +2,10 @@
 // @name         Userscript sort by seed for NH
 // @description  Userscript sort by seed for NH
 // @namespace    https://github.com/log1x0/nh-scripts
-// @updateURL    https://github.com/log1x0/nh-scripts/raw/refs/heads/master/javascript/nh-sort.user.js
-// @downloadURL  https://github.com/log1x0/nh-scripts/raw/refs/heads/master/javascript/nh-sort.user.js
+// @updateURL    https://github.com/log1x0/nh-scripts/raw/refs/heads/master/other-javascript/nh-sort-script.js
+// @downloadURL  https://github.com/log1x0/nh-scripts/raw/refs/heads/master/other-javascript/nh-sort-script.js
 // @supportURL   https://github.com/log1x0/nh-scripts/issues
-// @version      1.0.1
+// @version      1.0.2
 // @author       log1x0
 // @license      MIT
 // @grant        none
