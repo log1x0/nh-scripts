@@ -2,8 +2,8 @@
 // @name         Userscript for NH
 // @description  Userscript for NH
 // @namespace    https://github.com/log1x0/nh-scripts
-// @updateURL    https://github.com/log1x0/nh-scripts/raw/refs/heads/master/javascript/nh-script.js
-// @downloadURL  https://github.com/log1x0/nh-scripts/raw/refs/heads/master/javascript/nh-script.js
+// @updateURL    https://github.com/log1x0/nh-scripts/raw/refs/heads/main/javascript/nh-script.js
+// @downloadURL  https://github.com/log1x0/nh-scripts/raw/refs/heads/main/javascript/nh-script.js
 // @supportURL   https://github.com/log1x0/nh-scripts/issues
 // @version      1.0.12
 // @author       log1x0
