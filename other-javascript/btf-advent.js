@@ -2,8 +2,8 @@
 // @name         New Userscript BTF Advent
 // @description  New Userscript BTF Advent
 // @namespace    https://github.com/log1x0/nh-scripts
-// @updateURL    https://github.com/log1x0/nh-scripts/raw/refs/heads/master/other-javascript/btf-advent.js
-// @downloadURL  https://github.com/log1x0/nh-scripts/raw/refs/heads/master/other-javascript/btf-advent.js
+// @updateURL    https://github.com/log1x0/nh-scripts/raw/refs/heads/main/other-javascript/btf-advent.js
+// @downloadURL  https://github.com/log1x0/nh-scripts/raw/refs/heads/main/other-javascript/btf-advent.js
 // @supportURL   https://github.com/log1x0/nh-scripts/issues
 // @version      1.0.2
 // @author       log1x0
