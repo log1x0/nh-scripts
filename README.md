@@ -22,7 +22,7 @@ Available in two versions:
    - [Edge](https://microsoftedge.microsoft.com/addons/detail/tampermonkey/)
 
 2. Click on the `Raw` button to install the script:
-   - [nh-script.js](https://github.com/log1x0/nh-scripts/raw/master/javascript/nh-script.js)
+   - [javascript/nh-script.js](https://github.com/log1x0/nh-scripts/blob/master/javascript/nh-script.js)
 
 3. Tampermonkey will recognize the script and prompt you to install it.
 
