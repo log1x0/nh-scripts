@@ -1,4 +1,4 @@
-### nh-scripts
+## nh-scripts
 
 Scripts for the NH shoutbox with Pepe emoji integration and customization features.
 
@@ -16,13 +16,13 @@ Available in two versions:
 **Works with:** Chrome, Firefox, Safari, Edge, and other browsers supporting Tampermonkey.
 
 1. Install the **Tampermonkey** extension:
-   - [Chrome](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobp55f)
+   - [Chrome](https://chrome.google.com/webstore/detail/tampermonkey/)
    - [Firefox](https://addons.mozilla.org/firefox/addon/tampermonkey/)
-   - [Safari](https://apps.apple.com/app/tampermonkey/id1482490089)
-   - [Edge](https://microsoftedge.microsoft.com/addons/detail/tampermonkey/iikmkjmpaadaobahmlepeloendndfohd)
+   - [Safari](https://apps.apple.com/app/tampermonkey/)
+   - [Edge](https://microsoftedge.microsoft.com/addons/detail/tampermonkey/)
 
 2. Click on the `Raw` button to install the script:
-   - [nh-scripts.user.js](https://github.com/log1x0/nh-scripts/raw/master/javascript/nh-scripts.user.js)
+   - [nh-script.js](https://github.com/log1x0/nh-scripts/raw/master/javascript/nh-script.js)
 
 3. Tampermonkey will recognize the script and prompt you to install it.
 
