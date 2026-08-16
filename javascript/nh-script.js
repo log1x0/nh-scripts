@@ -2,10 +2,10 @@
 // @name         Userscript for NH
 // @description  Userscript for NH
 // @namespace    https://github.com/log1x0/nh-scripts
-// @updateURL    https://github.com/log1x0/nh-scripts/raw/refs/heads/master/javascript/nh-scripts.user.js
-// @downloadURL  https://github.com/log1x0/nh-scripts/raw/refs/heads/master/javascript/nh-scripts.user.js
+// @updateURL    https://github.com/log1x0/nh-scripts/raw/refs/heads/master/javascript/nh-script.js
+// @downloadURL  https://github.com/log1x0/nh-scripts/raw/refs/heads/master/javascript/nh-script.js
 // @supportURL   https://github.com/log1x0/nh-scripts/issues
-// @version      1.0.11
+// @version      1.0.12
 // @author       log1x0
 // @license      MIT
 // @grant        none
@@ -270,27 +270,70 @@ const totalElements = numOfRows * numOfCols;
 
 let orgTable = null;
 
-(function () {
-  "use strict";
-  addSwitchStyle();
-  add_4k();
-  if (isInsideIframe()) {
-    console.log("inside iframe ...");
+function initExtension() {
+    const currentUrl = window.location.href;
+
+    // -------------------------------------------------------------
+    // FALL 1: Code für die HAUPTSEITE (Ganz oben)
+    // -------------------------------------------------------------
+    if (window.self === window.top) {
+        console.log("🏠 [Hauptseite] Code läuft auf der obersten Ebene!");
+        executeOnMainPage();
+    }
+    
+    // -------------------------------------------------------------
+    // FALL 2: Code für das ÄUẞERE iFrame
+    // -------------------------------------------------------------
+    else if (currentUrl.includes("strWebAction=shoutbox_home") && currentUrl.includes("display=frame")) {
+        console.log("📦 [Äußeres iFrame] Code läuft im mittleren Frame!");
+        executeInOuterIframe();
+    }
+
+    // -------------------------------------------------------------
+    // FALL 3: Code für das INNERE iFrame (die eigentliche Shoutbox)
+    // -------------------------------------------------------------
+    else if (currentUrl.includes("strWebAction=shoutbox_home") && !currentUrl.includes("display=frame")) {
+        console.log("🎯 [Inneres iFrame] Code läuft im innersten Frame!");
+        executeInInnerIframe();
+    }
+}
+
+// === 1. HAUPTSEITE ===
+function executeOnMainPage() {
+    // Läuft nur einmal beim Laden der gesamten Website
+    // Wird durch die 30-Sekunden-Reloads der iFrames NICHT beeinflusst
+    addSwitchStyle();
+    setStyle();
+    add_4k();
+}
+
+// === 2. ÄUẞERES IFRAME ===
+function executeInOuterIframe() {
+    // Läuft, sobald das äußere iFrame geladen ist
+    // Falls sich dieses iFrame NICHT alle 30 Sekunden neu lädt, läuft der Code hier nur einmal
+    setStyle();
     swapInput();
     removeHints();
     addPepe();
     addPepeSearch();
     addExcludeButton();
+    splitShoutBox();
+}
+
+// === 3. INNERES IFRAME ===
+function executeInInnerIframe() {
+    // WICHTIG: Dieser Code läuft beim ersten Laden UND alle 30 Sekunden beim Reload neu!
+    // Perfekt, um hier die Shoutbox-Einträge frisch auszulesen
+    setStyle();
     checkExcludeRegex();
     splitShoutBox();
-  }
-})();
+}
 
-function isInsideIframe() {
-  if (window.top === window.self) {
-    return false;
-  }
-  return true;
+// Skript-Start für das jeweilige Fenster/iFrame
+if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initExtension);
+} else {
+    initExtension();
 }
 
 function swapInput() {
@@ -484,12 +527,7 @@ function addTd(tr, url, title_index, row_index, col_index) {
   img.width = getWidth(url);
   img.height = getHeight(url);
 
-  // Sicherer Event-Listener statt String-Injektion:
-  img.addEventListener("click", function () {
-    if (typeof setTag === "function") {
-      setTag("[IMG]" + url[0] + "[/IMG]");
-    }
-  });
+  img.setAttribute("onclick", "setTag('[IMG]" + url[0] + "[/IMG]');");
 
   img.title = title;
   img.classList.add("pepe-emoji");
@@ -650,10 +688,6 @@ function addSwitchStyle() {
       select.value = 9;
     }
   }
-
-  if (localStorage.shouldStyleSet == 1) {
-    setStyle();
-  }
 }
 
 function styleClick() {
@@ -672,7 +706,11 @@ function styleClick() {
 }
 
 function setStyle() {
-  // choose your background color:
+  if (localStorage.shouldStyleSet != 1) {
+    return;
+  }
+
+  // choose background color:
   let color1 = "#333C4D";
 
   let color2 = "LightGray";
