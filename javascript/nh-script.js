@@ -671,7 +671,7 @@ function addSwitchStyle() {
   if (!localStorage.shouldStyleSet || localStorage.shouldStyleSet == null || localStorage.shouldStyleSet == 0) {
     localStorage.shouldStyleSet = 1;
   }
-  
+
   let select = document.querySelector('select[name="theme"]');
   if (select) {
     let opt = document.createElement("option");
