@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "NH Scripts",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "Userscript for NH - Enhanced UI with Pepe emojis and customization",
   "author": "log1x0",
   "permissions": [
