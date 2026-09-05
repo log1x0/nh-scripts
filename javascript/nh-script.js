@@ -310,6 +310,7 @@ function executeOnMainPage() {
 // === 2. ÄUẞERES IFRAME ===
 function executeInOuterIframe() {
   // Läuft, sobald das äußere iFrame geladen ist
+  setStyle();
   swapInput();
   removeHints();
   addPepe();
@@ -321,6 +322,7 @@ function executeInOuterIframe() {
 // === 3. INNERES IFRAME ===
 function executeInInnerIframe() {
   // WICHTIG: Dieser Code läuft beim ersten Laden UND alle 30 Sekunden beim Reload neu!
+  setStyle();
   checkExcludeRegex();
   splitShoutBox();
 }
@@ -690,13 +692,13 @@ function styleClick() {
   if (localStorage.shouldStyleSet == 1 && select && select.value == 9) {
     localStorage.shouldStyleSet = 1;
     select.value = 1;
-    document.detailbox.submit();
+    document.getElementsByName('detailbox')[0].submit();
     localStorage.shouldStyleSet = 2;
     select.value = 9;
     setStyle();
   } else {
     localStorage.shouldStyleSet = 1;
-    document.detailbox.submit();
+    document.getElementsByName('detailbox')[0].submit();
   }
 }
 
