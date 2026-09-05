@@ -692,13 +692,13 @@ function styleClick() {
   if (localStorage.shouldStyleSet == 1 && select && select.value == 9) {
     localStorage.shouldStyleSet = 1;
     select.value = 1;
-    document.getElementsByName('detailbox')[0].submit();
+    document.getElementsByName("detailbox")[0].submit();
     localStorage.shouldStyleSet = 2;
     select.value = 9;
     setStyle();
   } else {
     localStorage.shouldStyleSet = 1;
-    document.getElementsByName('detailbox')[0].submit();
+    document.getElementsByName("detailbox")[0].submit();
   }
 }
 
