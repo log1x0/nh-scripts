@@ -5,7 +5,7 @@
 // @updateURL    https://github.com/log1x0/nh-scripts/raw/refs/heads/main/javascript/nh-script.js
 // @downloadURL  https://github.com/log1x0/nh-scripts/raw/refs/heads/main/javascript/nh-script.js
 // @supportURL   https://github.com/log1x0/nh-scripts/issues
-// @version      1.0.12
+// @version      1.0.13
 // @author       log1x0
 // @license      MIT
 // @grant        none
@@ -310,7 +310,6 @@ function executeOnMainPage() {
 // === 2. ÄUẞERES IFRAME ===
 function executeInOuterIframe() {
   // Läuft, sobald das äußere iFrame geladen ist
-  // Falls sich dieses iFrame NICHT alle 30 Sekunden neu lädt, läuft der Code hier nur einmal
   setStyle();
   swapInput();
   removeHints();
@@ -323,7 +322,6 @@ function executeInOuterIframe() {
 // === 3. INNERES IFRAME ===
 function executeInInnerIframe() {
   // WICHTIG: Dieser Code läuft beim ersten Laden UND alle 30 Sekunden beim Reload neu!
-  // Perfekt, um hier die Shoutbox-Einträge frisch auszulesen
   setStyle();
   checkExcludeRegex();
   splitShoutBox();
@@ -672,9 +670,8 @@ function checkExcludeRegex() {
 }
 
 function addSwitchStyle() {
-  if (!localStorage.shouldStyleSet) {
-    // init:
-    localStorage.shouldStyleSet = 0;
+  if (!localStorage.shouldStyleSet || localStorage.shouldStyleSet == null || localStorage.shouldStyleSet == 0) {
+    localStorage.shouldStyleSet = 1;
   }
 
   let select = document.querySelector('select[name="theme"]');
@@ -684,7 +681,7 @@ function addSwitchStyle() {
     opt.innerHTML = "Custom by Logi";
     select.onchange = styleClick;
     select.appendChild(opt);
-    if (localStorage.shouldStyleSet == 1) {
+    if (localStorage.shouldStyleSet == 2) {
       select.value = 9;
     }
   }
@@ -692,21 +689,21 @@ function addSwitchStyle() {
 
 function styleClick() {
   let select = document.querySelector('select[name="theme"]');
-  if (localStorage.shouldStyleSet && select && select.value == 9) {
-    localStorage.shouldStyleSet = 0;
-    select.value = 1;
-    document.detailbox.submit();
+  if (localStorage.shouldStyleSet == 1 && select && select.value == 9) {
     localStorage.shouldStyleSet = 1;
+    select.value = 1;
+    document.getElementsByName("detailbox")[0].submit();
+    localStorage.shouldStyleSet = 2;
     select.value = 9;
     setStyle();
   } else {
-    localStorage.shouldStyleSet = 0;
-    document.detailbox.submit();
+    localStorage.shouldStyleSet = 1;
+    document.getElementsByName("detailbox")[0].submit();
   }
 }
 
 function setStyle() {
-  if (localStorage.shouldStyleSet != 1) {
+  if (localStorage.shouldStyleSet != 2) {
     return;
   }
 
