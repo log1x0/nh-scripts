@@ -5,7 +5,7 @@
 // @updateURL    https://github.com/log1x0/nh-scripts/raw/refs/heads/main/javascript/nh-script.js
 // @downloadURL  https://github.com/log1x0/nh-scripts/raw/refs/heads/main/javascript/nh-script.js
 // @supportURL   https://github.com/log1x0/nh-scripts/issues
-// @version      1.0.13
+// @version      1.0.14
 // @author       log1x0
 // @license      MIT
 // @grant        none
@@ -89,7 +89,7 @@ let urls = [
   ["files/imagecache/63733_Groehl.gif", 42, 32],
   ["files/imagecache/63733_pepe-094.gif", 36, 26],
   ["files/imagecache/63733_pepe-109.gif", 32, 32],
-  ["files/imagecache/63733_pepe-121.gif", 32, 32],
+  ["files/imagecache/63726_408164-pepecook.gif", 32, 32],
   ["files/imagecache/63733_pepe-123.gif", 32, 32],
   ["files/imagecache/63733_pepe-124.gif", 32, 32],
   ["files/imagecache/63733_pepe-125.gif", 32, 32],
@@ -100,7 +100,7 @@ let urls = [
   ["files/imagecache/63733_pepe-130.gif", 32, 32],
   ["files/imagecache/63733_pepe-131.gif", 32, 32],
   ["files/imagecache/63733_pepe-132.gif", 32, 32],
-  ["files/imagecache/63733_peeporain-rain.gif", 32, 32],
+  ["files/imagecache/63726_827729-peperain.gif", 32, 32],
   ["files/imagecache/63733_pepe-134.gif", 32, 32],
   ["files/imagecache/56594_stab.gif", 32, 32],
   ["files/imagecache/63733_pepe-136.gif", 32, 32],
@@ -119,14 +119,14 @@ let urls = [
   ["files/imagecache/63733_pepe-148.gif", 32, 32],
   ["files/imagecache/63733_pepe-149.gif", 32, 32],
   ["files/imagecache/63733_pepe-lecka.gif", 32, 32],
-  ["files/imagecache/63733_pepe-151.gif", 32, 32],
+  ["files/imagecache/63726_334476-gamer.gif", 32, 32],
   ["files/imagecache/63733_pepe-152.gif", 32, 32],
   ["files/imagecache/63733_pepe-153.gif", 32, 32],
   ["files/imagecache/63733_pepe-154.gif", 32, 32],
   ["files/imagecache/63733_pepe-155.gif", 32, 32],
-  ["files/imagecache/63733_pepe-156.gif", 32, 32],
+  ["files/imagecache/63726_618704-pepeokay.gif", 32, 32],
   ["files/imagecache/63733_pepe-158.gif", 32, 32],
-  ["files/imagecache/63733_pepe-160.gif", 64, 64],
+  ["files/imagecache/63726_298876-pepebanger.gif", 32, 32],
   ["files/imagecache/63733_pepe-161.gif", 64, 64],
   ["files/imagecache/63733_pepe-163.gif", 64, 64],
   ["files/imagecache/63733_pepe-164.gif", 64, 64],
@@ -151,7 +151,7 @@ let urls = [
   ["files/imagecache/63733_happy.newyear.gif", 48, 18],
   ["files/imagecache/63837_0567.gif", 40, 30],
   ["files/imagecache/63837_whiteflag.gif", 54, 40],
-  ["files/imagecache/63733_gl%C3%B6%C3%B6ckler-harald.gif", 100, 50],
+  ["files/imagecache/63726_238671-petpetpepe.gif", 32, 32],
   ["files/imagecache/63837_hmmm.gif", 25, 23],
   ["files/imagecache/63837_0538.gif", 60, 55],
   ["files/imagecache/63837_furz.gif", 37, 25],
@@ -165,7 +165,7 @@ let urls = [
   ["files/imagecache/60835_2qshsmhe3j9.gif", 58, 51],
   ["files/imagecache/60835_ouecny3owqv.gif", 48, 34],
   ["files/imagecache/60835_iv3q20c6fue.gif", 39, 22],
-  ["files/imagecache/63726_art-the-clown-terrifier.gif", 80, 60],
+  ["files/imagecache/63726_235591-peepo-sign-welcome.gif", 32, 32],
   ["files/imagecache/60835_hl3qylku3jn.gif", 76, 51],
   ["files/imagecache/60835_o6ujjd9fwic.gif", 68, 48],
   ["files/imagecache/60835_cmnjri326fn.gif", 41, 49],
