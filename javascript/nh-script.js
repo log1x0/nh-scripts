@@ -5,7 +5,7 @@
 // @updateURL    https://github.com/log1x0/nh-scripts/raw/refs/heads/main/javascript/nh-script.js
 // @downloadURL  https://github.com/log1x0/nh-scripts/raw/refs/heads/main/javascript/nh-script.js
 // @supportURL   https://github.com/log1x0/nh-scripts/issues
-// @version      1.0.14
+// @version      1.0.15
 // @author       log1x0
 // @license      MIT
 // @grant        none
@@ -155,7 +155,7 @@ let urls = [
   ["files/imagecache/63837_hmmm.gif", 25, 23],
   ["files/imagecache/63837_0538.gif", 60, 55],
   ["files/imagecache/63837_furz.gif", 37, 25],
-  ["files/imagecache/63733_peepo%20pipe.gif", 90, 70],
+  ["files/imagecache/63733_Elmo.gif", 39, 47],
   ["files/imagecache/63733_merry.gif", 66, 26],
   ["files/imagecache/60835_yovyor4rxqf.gif", 50, 40],
   ["files/imagecache/60835_am7sukwngj.gif", 188, 46],
